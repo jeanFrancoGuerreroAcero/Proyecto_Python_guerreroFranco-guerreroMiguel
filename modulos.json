@@ -1,0 +1,38 @@
+[
+    {
+        "id":1,
+        "modulos":[
+            {"Tema":"Fundamentos de programacion (PSeInt y Python)"},
+            {"Tema":"Progrmacion web (HTML, CSS y Bootstrap)"},
+            {"Tema":"Propgramacion formal (Java, JavaScript, C#)"},
+            {"Tema":"Base de datos (Mysql, MongoDb y Postgresql)"},
+            {"Tema":"Backend (NetCore, Spring Boot, NoteJS y Express)"}
+        ]
+    },
+    {
+        "id":2,
+        "rutas":[
+            {"NodesJs":""},
+            {"Java":""},
+            {"NetCore":""}
+        ]
+    },
+    {
+        "id":3,
+        "trainers":[
+            {"jholver":""},
+            {"pedro":""},
+            {"miguel":""},
+            {"juank":""}
+        ]
+    },
+    {
+        "id":4,
+        "salones":[
+            {"Sputnik":""},
+            {"Apolo":""},
+            {"Artemis":""}
+        ]
+    }
+
+]
