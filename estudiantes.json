@@ -5,51 +5,51 @@
         "estudiantes": [
             {
                 "id": 1,
-                "cedula": "10001",
-                "nombre": "Maria",
-                "apellido": "Acevedo",
-                "direccion": "",
-                "acudiente": "",
-                "telefono": "",
-                "estado": "",
-                "area" : "",
-                "trainer" : "",
-                "riesgo" : "",
-                "fecha ini" : "",
-                "fecha fin" : "",
-                "ruta" : ""
+                "cedula": "1000",
+                "nombre": "jerxon",
+                "apellido": "core",
+                "direccion": "calle 2 #3",
+                "acudiente": "maria lizaraso",
+                "telefono": "190089",
+                "estado": "inscrito",
+                "salon": "apolo",
+                "trainer": "jholver",
+                "riesgo": "",
+                "ruta": "java",
+                "fechaIni": "12-03-2024",
+                "fechaFin": "13-04-2024"
             },
             {
                 "id": 2,
-                "cedula": "10002",
+                "cedula": "1001",
                 "nombre": "Enrique",
                 "apellido": "Mejia",
-                "direccion": "",
-                "acudiente": "",
-                "telefono": "",
+                "direccion": "call 3 #4",
+                "acudiente": "eduardo guerrero",
+                "telefono": "200009",
                 "estado": "",
-                "area" : "",
-                "trainer" : "",
-                "riesgo" : "",
-                "fecha ini" : "",
-                "fecha fin" : "",
-                "ruta" : ""
+                "salon": "",
+                "trainer": "",
+                "riesgo": "",
+                "fecha ini": "",
+                "fecha fin": "",
+                "ruta": ""
             },
             {
                 "id": 3,
-                "cedula": "10003",
+                "cedula": "1002",
                 "nombre": "Carolina",
                 "apellido": "Ruiz",
                 "direccion": "",
                 "acudiente": "",
                 "telefono": "",
                 "estado": "",
-                "area" : "",
-                "trainer" : "",
-                "riesgo" : "",
-                "fecha ini" : "",
-                "fecha fin" : "",
-                "ruta" : ""
+                "salon": "",
+                "trainer": "",
+                "riesgo": "",
+                "fecha ini": "",
+                "fecha fin": "",
+                "ruta": ""
             },
             {
                 "id": 4,
@@ -60,12 +60,12 @@
                 "acudiente": "",
                 "telefono": "",
                 "estado": "",
-                "area" : "",
-                "trainer" : "",
-                "riesgo" : "",
-                "fecha ini" : "",
-                "fecha fin" : "",
-                "ruta" : ""
+                "salon": "",
+                "trainer": "",
+                "riesgo": "",
+                "fecha ini": "",
+                "fecha fin": "",
+                "ruta": ""
             },
             {
                 "id": 5,
@@ -76,12 +76,12 @@
                 "acudiente": "",
                 "telefono": "",
                 "estado": "",
-                "area" : "",
-                "trainer" : "",
-                "riesgo" : "",
-                "fecha ini" : "",
-                "fecha fin" : "",
-                "ruta" : ""
+                "salon": "",
+                "trainer": "",
+                "riesgo": "",
+                "fecha ini": "",
+                "fecha fin": "",
+                "ruta": ""
             },
             {
                 "id": 6,
@@ -92,12 +92,12 @@
                 "acudiente": "",
                 "telefono": "",
                 "estado": "",
-                "area" : "",
-                "trainer" : "",
-                "riesgo" : "",
-                "fecha ini" : "",
-                "fecha fin" : "",
-                "ruta" : ""
+                "area": "",
+                "trainer": "",
+                "riesgo": "",
+                "fecha ini": "",
+                "fecha fin": "",
+                "ruta": ""
             },
             {
                 "id": 7,
@@ -108,12 +108,12 @@
                 "acudiente": "",
                 "telefono": "",
                 "estado": "",
-                "area" : "",
-                "trainer" : "",
-                "riesgo" : "",
-                "fecha ini" : "",
-                "fecha fin" : "",
-                "ruta" : ""
+                "area": "",
+                "trainer": "",
+                "riesgo": "",
+                "fecha ini": "",
+                "fecha fin": "",
+                "ruta": ""
             },
             {
                 "id": 8,
@@ -124,12 +124,12 @@
                 "acudiente": "",
                 "telefono": "",
                 "estado": "",
-                "area" : "",
-                "trainer" : "",
-                "riesgo" : "",
-                "fecha ini" : "",
-                "fecha fin" : "",
-                "ruta" : ""
+                "area": "",
+                "trainer": "",
+                "riesgo": "",
+                "fecha ini": "",
+                "fecha fin": "",
+                "ruta": ""
             },
             {
                 "id": 9,
@@ -140,12 +140,12 @@
                 "acudiente": "",
                 "telefono": "",
                 "estado": "",
-                "area" : "",
-                "trainer" : "",
-                "riesgo" : "",
-                "fecha ini" : "",
-                "fecha fin" : "",
-                "ruta" : ""
+                "area": "",
+                "trainer": "",
+                "riesgo": "",
+                "fecha ini": "",
+                "fecha fin": "",
+                "ruta": ""
             },
             {
                 "id": 10,
@@ -156,12 +156,12 @@
                 "acudiente": "",
                 "telefono": "",
                 "estado": "",
-                "area" : "",
-                "trainer" : "",
-                "riesgo" : "",
-                "fecha ini" : "",
-                "fecha fin" : "",
-                "ruta" : ""
+                "area": "",
+                "trainer": "",
+                "riesgo": "",
+                "fecha ini": "",
+                "fecha fin": "",
+                "ruta": ""
             },
             {
                 "id": 11,
@@ -172,12 +172,12 @@
                 "acudiente": "",
                 "telefono": "",
                 "estado": "",
-                "area" : "",
-                "trainer" : "",
-                "riesgo" : "",
-                "fecha ini" : "",
-                "fecha fin" : "",
-                "ruta" : ""
+                "area": "",
+                "trainer": "",
+                "riesgo": "",
+                "fecha ini": "",
+                "fecha fin": "",
+                "ruta": ""
             },
             {
                 "id": 12,
@@ -188,12 +188,12 @@
                 "acudiente": "",
                 "telefono": "",
                 "estado": "",
-                "area" : "",
-                "trainer" : "",
-                "riesgo" : "",
-                "fecha ini" : "",
-                "fecha fin" : "",
-                "ruta" : ""
+                "area": "",
+                "trainer": "",
+                "riesgo": "",
+                "fecha ini": "",
+                "fecha fin": "",
+                "ruta": ""
             },
             {
                 "id": 13,
@@ -204,11 +204,11 @@
                 "acudiente": "",
                 "telefono": "",
                 "estado": "",
-                "area" : "",
-                "trainer" : "",
-                "riesgo" : "",
-                "fechas" : "",
-                "ruta" : ""
+                "area": "",
+                "trainer": "",
+                "riesgo": "",
+                "fechas": "",
+                "ruta": ""
             },
             {
                 "id": 14,
@@ -219,11 +219,11 @@
                 "acudiente": "",
                 "telefono": "",
                 "estado": "",
-                "area" : "",
-                "trainer" : "",
-                "riesgo" : "",
-                "fechas" : "",
-                "ruta" : ""
+                "area": "",
+                "trainer": "",
+                "riesgo": "",
+                "fechas": "",
+                "ruta": ""
             },
             {
                 "id": 15,
@@ -234,11 +234,11 @@
                 "acudiente": "",
                 "telefono": "",
                 "estado": "",
-                "area" : "",
-                "trainer" : "",
-                "riesgo" : "",
-                "fechas" : "",
-                "ruta" : ""
+                "area": "",
+                "trainer": "",
+                "riesgo": "",
+                "fechas": "",
+                "ruta": ""
             },
             {
                 "id": 16,
@@ -249,11 +249,11 @@
                 "acudiente": "",
                 "telefono": "",
                 "estado": "",
-                "area" : "",
-                "trainer" : "",
-                "riesgo" : "",
-                "fechas" : "",
-                "ruta" : ""
+                "area": "",
+                "trainer": "",
+                "riesgo": "",
+                "fechas": "",
+                "ruta": ""
             },
             {
                 "id": 17,
@@ -264,11 +264,11 @@
                 "acudiente": "",
                 "telefono": "",
                 "estado": "",
-                "area" : "",
-                "trainer" : "",
-                "riesgo" : "",
-                "fechas" : "",
-                "ruta" : ""
+                "area": "",
+                "trainer": "",
+                "riesgo": "",
+                "fechas": "",
+                "ruta": ""
             },
             {
                 "id": 18,
@@ -279,11 +279,11 @@
                 "acudiente": "",
                 "telefono": "",
                 "estado": "",
-                "area" : "",
-                "trainer" : "",
-                "riesgo" : "",
-                "fechas" : "",
-                "ruta" : ""
+                "area": "",
+                "trainer": "",
+                "riesgo": "",
+                "fechas": "",
+                "ruta": ""
             },
             {
                 "id": 19,
@@ -294,26 +294,26 @@
                 "acudiente": "",
                 "telefono": "",
                 "estado": "",
-                "area" : "",
-                "trainer" : "",
-                "riesgo" : "",
-                "fechas" : "",
-                "ruta" : ""
+                "area": "",
+                "trainer": "",
+                "riesgo": "",
+                "fechas": "",
+                "ruta": ""
             },
             {
                 "id": 20,
                 "cedula": "10020",
                 "nombre": "Gustavo",
-                "apellido": "Villaseñor",
+                "apellido": "Villase\u00c3\u00b1or",
                 "direccion": "",
                 "acudiente": "",
                 "telefono": "",
                 "estado": "",
-                "area" : "",
-                "trainer" : "",
-                "riesgo" : "",
-                "fechas" : "",
-                "ruta" : ""
+                "area": "",
+                "trainer": "",
+                "riesgo": "",
+                "fechas": "",
+                "ruta": ""
             },
             {
                 "id": 21,
@@ -324,11 +324,11 @@
                 "acudiente": "",
                 "telefono": "",
                 "estado": "",
-                "area" : "",
-                "trainer" : "",
-                "riesgo" : "",
-                "fechas" : "",
-                "ruta" : ""
+                "area": "",
+                "trainer": "",
+                "riesgo": "",
+                "fechas": "",
+                "ruta": ""
             },
             {
                 "id": 22,
@@ -339,11 +339,11 @@
                 "acudiente": "",
                 "telefono": "",
                 "estado": "",
-                "area" : "",
-                "trainer" : "",
-                "riesgo" : "",
-                "fechas" : "",
-                "ruta" : ""
+                "area": "",
+                "trainer": "",
+                "riesgo": "",
+                "fechas": "",
+                "ruta": ""
             },
             {
                 "id": 23,
@@ -354,11 +354,11 @@
                 "acudiente": "",
                 "telefono": "",
                 "estado": "",
-                "area" : "",
-                "trainer" : "",
-                "riesgo" : "",
-                "fechas" : "",
-                "ruta" : ""
+                "area": "",
+                "trainer": "",
+                "riesgo": "",
+                "fechas": "",
+                "ruta": ""
             },
             {
                 "id": 24,
@@ -369,147 +369,13 @@
                 "acudiente": "",
                 "telefono": "",
                 "estado": "",
-                "area" : "",
-                "trainer" : "",
-                "riesgo" : "",
-                "fechas" : "",
-                "ruta" : ""
-            },
-            {
-                "id": 25,
-                "cedula": "10025",
-                "nombre": "Miguel",
-                "apellido": "Alcantar",
-                "direccion": "",
-                "acudiente": "",
-                "telefono": "",
-                "estado": "",
-                "area" : "",
-                "trainer" : "",
-                "riesgo" : "",
-                "fechas" : "",
-                "ruta" : ""
-            },
-            {
-                "id": 26,
-                "cedula": "10026",
-                "nombre": "Ramiro",
-                "apellido": "Amaya",
-                "direccion": "",
-                "acudiente": "",
-                "telefono": "",
-                "estado": "",
-                "area" : "",
-                "trainer" : "",
-                "riesgo" : "",
-                "fechas" : "",
-                "ruta" : ""
-            },
-            {
-                "id": 27,
-                "cedula": "10027",
-                "nombre": "Martha",
-                "apellido": "Anzures",
-                "direccion": "",
-                "acudiente": "",
-                "telefono": "",
-                "estado": "",
-                "area" : "",
-                "trainer" : "",
-                "riesgo" : "",
-                "fechas" : "",
-                "ruta" : ""
-            },
-            {
-                "id": 28,
-                "cedula": "10028",
-                "nombre": "Oscar",
-                "apellido": "Romero",
-                "direccion": "",
-                "acudiente": "",
-                "telefono": "",
-                "estado": "",
-                "area" : "",
-                "trainer" : "",
-                "riesgo" : "",
-                "fechas" : "",
-                "ruta" : ""
-            },
-            {
-                "id": 29,
-                "cedula": "10029",
-                "nombre": "Javier",
-                "apellido": "Arnaud",
-                "direccion": "",
-                "acudiente": "",
-                "telefono": "",
-                "estado": "",
-                "area" : "",
-                "trainer" : "",
-                "riesgo" : "",
-                "fechas" : "",
-                "ruta" : ""
-            },
-            {
-                "id": 30,
-                "cedula": "10030",
-                "nombre": "Javier",
-                "apellido": "Viñas",
-                "direccion": "",
-                "acudiente": "",
-                "telefono": "",
-                "estado": "",
-                "area" : "",
-                "trainer" : "",
-                "riesgo" : "",
-                "fechas" : "",
-                "ruta" : ""
-            },
-            {
-                "id": 31,
-                "cedula": "10031",
-                "nombre": "Castro",
-                "apellido": "Ovalle",
-                "direccion": "",
-                "acudiente": "",
-                "telefono": "",
-                "estado": "",
-                "area" : "",
-                "trainer" : "",
-                "riesgo" : "",
-                "fechas" : "",
-                "ruta" : ""
-            },
-            {
-                "id": 32,
-                "cedula": "10032",
-                "nombre": "Rosalia",
-                "apellido": "Lopez",
-                "direccion": "",
-                "acudiente": "",
-                "telefono": "",
-                "estado": "",
-                "area" : "",
-                "trainer" : "",
-                "riesgo" : "",
-                "fechas" : "",
-                "ruta" : ""
-            },
-            {
-                "id": 33,
-                "cedula": "10033",
-                "nombre": "Ernesto",
-                "apellido": "Arredondo",
-                "direccion": "",
-                "acudiente": "",
-                "telefono": "",
-                "estado": "",
-                "area" : "",
-                "trainer" : "",
-                "riesgo" : "",
-                "fechas" : "",
-                "ruta" : ""
+                "area": "",
+                "trainer": "",
+                "riesgo": "",
+                "fechas": "",
+                "ruta": ""
             }
+            
         ]
     },
     {
@@ -521,10 +387,18 @@
                 "cedula": "20001",
                 "nombre": "Juan",
                 "apellido": "Alarcon",
-                "direccion": "",
-                "acudiente": "",
-                "telefono": "",
-                "estado": ""
+                "direccion": "call 8 #9",
+                "acudiente": "camila mayra",
+                "telefono": "80009",
+                "estado": "cursando",
+                "salon": "apolo",
+                "trainer": "jholver",
+                "riesgo": "",
+                "ruta": "java",
+                "fechaIni": "12-03-2024",
+                "fechaFin": "13-04-2024",
+                "ocupado" : "6-10",
+                "grupo" : "M1"
             },
             {
                 "id": 2,
@@ -534,7 +408,15 @@
                 "direccion": "",
                 "acudiente": "",
                 "telefono": "",
-                "estado": ""
+                "estado": "cursando",
+                "salon": "apolo",
+                "trainer": "jholver",
+                "riesgo": "",
+                "ruta": "java",
+                "fechaIni": "12-03-2024",
+                "fechaFin": "13-04-2024",
+                "ocupado" : "6-10",
+                "grupo" : "M1"
             },
             {
                 "id": 3,
@@ -544,7 +426,15 @@
                 "direccion": "",
                 "acudiente": "",
                 "telefono": "",
-                "estado": ""
+                "estado": "cursando",
+                "salon": "apolo",
+                "trainer": "jholver",
+                "riesgo": "",
+                "ruta": "java",
+                "fechaIni": "12-03-2024",
+                "fechaFin": "13-04-2024",
+                "ocupado" : "6-10",
+                "grupo" : "M1"
             },
             {
                 "id": 4,
@@ -554,7 +444,15 @@
                 "direccion": "",
                 "acudiente": "",
                 "telefono": "",
-                "estado": ""
+                "estado": "cursando",
+                "salon": "apolo",
+                "trainer": "jholver",
+                "riesgo": "",
+                "ruta": "java",
+                "fechaIni": "12-03-2024",
+                "fechaFin": "13-04-2024",
+                "ocupado" : "6-10",
+                "grupo" : "M1"
             },
             {
                 "id": 5,
@@ -564,7 +462,15 @@
                 "direccion": "",
                 "acudiente": "",
                 "telefono": "",
-                "estado": ""
+                "estado": "cursando",
+                "salon": "apolo",
+                "trainer": "jholver",
+                "riesgo": "",
+                "ruta": "java",
+                "fechaIni": "12-03-2024",
+                "fechaFin": "13-04-2024",
+                "ocupado" : "6-10",
+                "grupo" : "M1"
             },
             {
                 "id": 6,
@@ -574,7 +480,15 @@
                 "direccion": "",
                 "acudiente": "",
                 "telefono": "",
-                "estado": ""
+                "estado": "cursando",
+                "salon": "apolo",
+                "trainer": "jholver",
+                "riesgo": "",
+                "ruta": "java",
+                "fechaIni": "12-03-2024",
+                "fechaFin": "13-04-2024",
+                "ocupado" : "6-10",
+                "grupo" : "M1"
             },
             {
                 "id": 7,
@@ -584,7 +498,15 @@
                 "direccion": "",
                 "acudiente": "",
                 "telefono": "",
-                "estado": ""
+                "estado": "cursando",
+                "salon": "apolo",
+                "trainer": "jholver",
+                "riesgo": "",
+                "ruta": "java",
+                "fechaIni": "12-03-2024",
+                "fechaFin": "13-04-2024",
+                "ocupado" : "6-10",
+                "grupo" : "M1"
             },
             {
                 "id": 8,
@@ -594,7 +516,15 @@
                 "direccion": "",
                 "acudiente": "",
                 "telefono": "",
-                "estado": ""
+                "estado": "cursando",
+                "salon": "apolo",
+                "trainer": "jholver",
+                "riesgo": "",
+                "ruta": "java",
+                "fechaIni": "12-03-2024",
+                "fechaFin": "13-04-2024",
+                "ocupado" : "6-10",
+                "grupo" : "M1"
             },
             {
                 "id": 9,
@@ -604,7 +534,15 @@
                 "direccion": "",
                 "acudiente": "",
                 "telefono": "",
-                "estado": ""
+                "estado": "cursando",
+                "salon": "apolo",
+                "trainer": "jholver",
+                "riesgo": "",
+                "ruta": "java",
+                "fechaIni": "12-03-2024",
+                "fechaFin": "13-04-2024",
+                "ocupado" : "6-10",
+                "grupo" : "M1"
             },
             {
                 "id": 10,
@@ -614,7 +552,15 @@
                 "direccion": "",
                 "acudiente": "",
                 "telefono": "",
-                "estado": ""
+                "estado": "cursando",
+                "salon": "apolo",
+                "trainer": "jholver",
+                "riesgo": "",
+                "ruta": "java",
+                "fechaIni": "12-03-2024",
+                "fechaFin": "13-04-2024",
+                "ocupado" : "6-10",
+                "grupo" : "M1"
             },
             {
                 "id": 11,
@@ -624,7 +570,15 @@
                 "direccion": "",
                 "acudiente": "",
                 "telefono": "",
-                "estado": ""
+                "estado": "cursando",
+                "salon": "apolo",
+                "trainer": "jholver",
+                "riesgo": "",
+                "ruta": "java",
+                "fechaIni": "12-03-2024",
+                "fechaFin": "13-04-2024",
+                "ocupado" : "6-10",
+                "grupo" : "M1"
             },
             {
                 "id": 12,
@@ -634,7 +588,15 @@
                 "direccion": "",
                 "acudiente": "",
                 "telefono": "",
-                "estado": ""
+                "estado": "cursando",
+                "salon": "apolo",
+                "trainer": "jholver",
+                "riesgo": "",
+                "ruta": "java",
+                "fechaIni": "12-03-2024",
+                "fechaFin": "13-04-2024",
+                "ocupado" : "6-10",
+                "grupo" : "M1"
             },
             {
                 "id": 13,
@@ -644,7 +606,15 @@
                 "direccion": "",
                 "acudiente": "",
                 "telefono": "",
-                "estado": ""
+                "estado": "cursando",
+                "salon": "apolo",
+                "trainer": "jholver",
+                "riesgo": "",
+                "ruta": "java",
+                "fechaIni": "12-03-2024",
+                "fechaFin": "13-04-2024",
+                "ocupado" : "6-10",
+                "grupo" : "M1"
             },
             {
                 "id": 14,
@@ -654,7 +624,15 @@
                 "direccion": "",
                 "acudiente": "",
                 "telefono": "",
-                "estado": ""
+                "estado": "cursando",
+                "salon": "apolo",
+                "trainer": "jholver",
+                "riesgo": "",
+                "ruta": "java",
+                "fechaIni": "12-03-2024",
+                "fechaFin": "13-04-2024",
+                "ocupado" : "6-10",
+                "grupo" : "M1"
             },
             {
                 "id": 15,
@@ -664,7 +642,15 @@
                 "direccion": "",
                 "acudiente": "",
                 "telefono": "",
-                "estado": ""
+                "estado": "cursando",
+                "salon": "apolo",
+                "trainer": "jholver",
+                "riesgo": "",
+                "ruta": "java",
+                "fechaIni": "12-03-2024",
+                "fechaFin": "13-04-2024",
+                "ocupado" : "6-10",
+                "grupo" : "M1"
             },
             {
                 "id": 16,
