@@ -20,11 +20,11 @@ def guardarModulo(miData):
     with open("modulos.json","w") as outfile:
         json.dump(miData,outfile)
 
-print("##############")
-print("bienvenido al departamento academico de campusland")
+print("########################################################")
+print("###BIENVENIDO AL DEPARTAMENTO ACADEMICO DE CAMPUSLAND###")
+print("########################################################")
 print("escriba en numero la opcion que desea escoger")
 rol=input("que rol tienes dentro de campus :\n1.trainer\n2.camper\n3.coordinador :")
-print("###############")
 booleano=True
 
 ##punto 3
@@ -34,14 +34,17 @@ while booleano:
 
     if rol=="3":
         jsonn=abrirArchivo()
-        print("bienvenido coordinador")
-        QueDesea=input("1.inscribir postulados\n2.ingresar nota a campers que finalizaron modulo\nque funcion va a realizar ")
+        print("############################")
+        print("###BIENVENIDO COORDINADOR###")
+        print("############################")
+        QueDesea=input("1.inscribir postulados\n2.ingresar nota a campers que finalizaron modulo\nque funcion va a realizar :")
         if QueDesea=="1":
             for i in jsonn[0]["estudiantes"]:
+                jsonn=abrirArchivo()
                 contador= contador+1
                 print("")
                 print("###############")
-                print("ESTUDIANTES QUE PRESENTARON LA PRUEBA DE INGRESO")
+                print("POSTULANTES QUE PRESENTARON LA PRUEBA DE INGRESO")
                 print("###############")
                 print("id",i["id"])
                 print("nombre",i["nombre"])
@@ -105,11 +108,12 @@ while booleano:
                     break
             print("")
         if QueDesea=="2":
-            print("#######################################")
-            print("######inscribir notas de campers#######")
-            print("#######################################")
+            jsonn=abrirArchivo()
+            print("##################################")
+            print("### INSCRIBIR NOTAS DE CAMPERS ###")
+            print("##################################")
             print("")
-            print("los grupos que terminaro modulo son :")
+            print("los grupos que finalizaron modulo son :")
             print("1.grupo M1")
             print("2.grupo t2")
             print("")
@@ -117,15 +121,17 @@ while booleano:
             queGrupo=input("A que grupo le va a revisar el rendimiento :")
 
             if queGrupo=="1":
-                abrirArchivo(jsonn)
-                print("se le va a actualizar el rendiminto a cada camper que esta en el grupo M1")
+                print("###############################################################################")
+                print("###se le va a actualizar el rendiminto a cada camper que esta en el grupo M1###")
+                print("################################################################################")
                 contador=0
                 for i in jsonn[1]["estudiantes"]:
+                    jsonn=abrirArchivo()
                     contador= contador+1
                     print("")
-                    print("###############")
-                    print("ESTUDIANTES QUE PRESENTARON LA PRUEBA DE INGRESO")
-                    print("###############")
+                    print("######################################")
+                    print("### CAMPERS QUE FINALIZARON MODULO ###")
+                    print("######################################")
                     print("id",i["id"])
                     print("nombre",i["nombre"])
                     print("apellido",i["apellido"])
@@ -137,21 +143,20 @@ while booleano:
                     print("trainer ",i["trainer"])
                     print("")
                     print("se le va a revisar la prueba a cada uno de los que postularon la prueba")
-                    estudiante=int(input("ingrese el id que identifica al postulado :"))
+                    estudiante=int((input("ingrese el id que identifica al camper :")))
                     riesgoNuevo=input("que promedio tuvo el camper\n*alto\n*bajo\n :")
 
                     if riesgoNuevo=="alto":
-                        jsonn[0]["estudiantes"][estudiante-1]["riesgo"] = riesgoNuevo
-                        print("el estudiante ",i["nombre"])
+                        jsonn[1]["estudiantes"][estudiante-1]["riesgo"] = riesgoNuevo
+                        print("el estudiante",i["nombre"],"tuvo un rendimiento alto en el modulo java")
                         guardarDatos(jsonn)
                         print("")
-
-
-
-
-
-
-
+                    if riesgoNuevo=="bajo":
+                        jsonn[1]["estudiantes"][estudiante-1]["riesgo"] = riesgoNuevo
+                        guardarDatos(jsonn)
+                        print("el estudiante",i["nombre"],"tuvo un rendimiento bajo en el modulo java")
+                        print("")
+                        
     if rol=="trainer":
       print("bienvenido trainer")
 
