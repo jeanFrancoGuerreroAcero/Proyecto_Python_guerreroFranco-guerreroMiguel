@@ -2,24 +2,15 @@ import json
 
 def abrirArchivo():
     jsonn=[]
-    with open("estudiantes.json","r") as openfile:
+    with open("PROYECTO\estudiantes.json","r") as openfile:
         jsonn= json.load(openfile)
         return jsonn
 
 def guardarDatos(miData):
-    with open("estudiantes.json","w") as outfile:
+    with open("PROYECTO\estudiantes.json","w") as outfile:
         json.dump(miData,outfile)
-
-def abrirmodulo():
-    miJsi=[]
-    with open("modulos.json","r") as openfile:
-        miJsi= json.load(openfile)
-        return miJsi
-    
-def guardarModulo(miData):
-    with open("modulos.json","w") as outfile:
-        json.dump(miData,outfile)
-
+        
+#Bienvenida al usuario
 print("========================================================")
 print("   BIENVENIDO AL DEPARTAMENTO ACADEMICO DE CAMPUSLAND   ")
 print("========================================================")
@@ -32,20 +23,23 @@ rol=input("""Que rol tienes dentro de campus:
           """)
 booleano=True
 
-##punto 3
 while booleano:
     contador=0
     jsonn=[]
-
-    if rol=="3":
+    
+#Bienvenida del cordinador
+    if rol=="1":
         jsonn=abrirArchivo()
         print("============================")
         print("   BIENVENIDO COORDINADOR   ")
         print("============================")
         QueDesea=input("""
                        que funcion vas a realizar: 
-                       1.inscribir postulados
-                       2.ingresar nota a campers que finalizaron modulo 
+                       
+                       1. Inscribir postulados
+                       2. Ingresar nota a campers que finalizaron modulo 
+                       3. Campers en peligro
+                       
                        """)
         
         if QueDesea=="1":
@@ -114,7 +108,7 @@ while booleano:
                     guardarDatos(jsonn)
                 else:
                     print("")
-                    print("el postulante no podra estar en campus")
+                    print("El postulante, no fue apto para asistir a Campuslads ")
                     break
             print("")
             
@@ -124,12 +118,15 @@ while booleano:
             print("    INSCRIBIR NOTAS DE CAMPERS    ")
             print("==================================")
             print("")
-            print("los grupos que finalizaron modulo son :")
-            print("1.grupo M1")
-            print("2.grupo t2")
-            print("")
-            print("ingrese la opcion enumerada")
-            queGrupo=input("A que grupo le va a revisar el rendimiento :")
+            print("los grupos que finalizaron modulo son: ")
+            print("""
+                1. Grupo M1
+                2. Grupo P1
+                3. Grupo T1
+                4. Grupo T2
+                  """)
+            print("Ingresa la opcion en numero (1-3)")
+            queGrupo=input("A que grupo le va a revisar el rendimiento: ")
 
             if queGrupo=="1":
                 print("===============================================================================")
@@ -153,33 +150,159 @@ while booleano:
                     print("ruta ",i["ruta"])
                     print("trainer ",i["trainer"])
                     print("")
+                    
                     print("se le va a revisar la prueba a cada uno de los que postularon la prueba")
-                    estudiante=int((input("ingrese el id que identifica al camper :")))
-                    riesgoNuevo=input("que promedio tuvo el camper\n*alto\n*bajo\n :")
+                    estudiante=int((input("ingrese el id que identifica al camper: ")))
+                    riesgoNuevo=input("que promedio tuvo el camper\n*alto\n*bajo\n: ")
 
                     if riesgoNuevo=="alto":
-                        jsonn[1]["estudiantes"][estudiante-1]["riesgo"] = riesgoNuevo
-                        print("el estudiante",i["nombre"],"tuvo un rendimiento alto en el modulo java")
+                        jsonn[1]["Estudiantes"][estudiante-1]["riesgo"] = riesgoNuevo
+                        print("El estudiante",i["nombre"],"tuvo un rendimiento alto en el modulo ",i["ruta"])
                         guardarDatos(jsonn)
                         print("")
                     if riesgoNuevo=="bajo":
                         jsonn[1]["estudiantes"][estudiante-1]["riesgo"] = riesgoNuevo
                         guardarDatos(jsonn)
-                        print("el estudiante",i["nombre"],"tuvo un rendimiento bajo en el modulo java")
+                        print("el estudiante",i["nombre"],"tuvo un rendimiento bajo en el modulo ",i["ruta"])
                         print("")
                         
-    if rol=="trainer":
+            if queGrupo=="2":
+                print("===============================================================================")
+                print("   se le va a actualizar el rendiminto a cada camper que esta en el grupo P1   ")
+                print("===============================================================================")
+                contador=0
+                for i in jsonn[1]["estudiantes"]:
+                    jsonn=abrirArchivo()
+                    contador= contador+1
+                    print("")
+                    print("======================================")
+                    print("    CAMPERS QUE FINALIZARON MODULO    ")
+                    print("======================================")
+                    print("id",i["id"])
+                    print("nombre",i["nombre"])
+                    print("apellido",i["apellido"])
+                    print("cedula",i["cedula"])
+                    print("acudiente",i["acudiente"])
+                    print("direcccion",i["direccion"])
+                    print("estado",i["estado"])
+                    print("ruta ",i["ruta"])
+                    print("trainer ",i["trainer"])
+                    print("")
+                    
+                    print("se le va a revisar la prueba a cada uno de los que postularon la prueba")
+                    estudiante=int((input("ingrese el id que identifica al camper: ")))
+                    riesgoNuevo=input("que promedio tuvo el camper\n*alto\n*bajo\n: ")
+
+                    if riesgoNuevo=="alto":
+                        jsonn[1]["Estudiantes"][estudiante-1]["riesgo"] = riesgoNuevo
+                        print("El estudiante",i["nombre"],"tuvo un rendimiento alto en el modulo ",i["ruta"])
+                        guardarDatos(jsonn)
+                        print("")
+                    if riesgoNuevo=="bajo":
+                        jsonn[1]["estudiantes"][estudiante-1]["riesgo"] = riesgoNuevo
+                        guardarDatos(jsonn)
+                        print("el estudiante",i["nombre"],"tuvo un rendimiento bajo en el modulo ",i["ruta"])
+                        print("")
+                        
+            if queGrupo=="3":
+                print("===============================================================================")
+                print("   se le va a actualizar el rendiminto a cada camper que esta en el grupo T1   ")
+                print("===============================================================================")
+                contador=0
+                for i in jsonn[1]["estudiantes"]:
+                    jsonn=abrirArchivo()
+                    contador= contador+1
+                    print("")
+                    print("======================================")
+                    print("    CAMPERS QUE FINALIZARON MODULO    ")
+                    print("======================================")
+                    print("id",i["id"])
+                    print("nombre",i["nombre"])
+                    print("apellido",i["apellido"])
+                    print("cedula",i["cedula"])
+                    print("acudiente",i["acudiente"])
+                    print("direcccion",i["direccion"])
+                    print("estado",i["estado"])
+                    print("ruta ",i["ruta"])
+                    print("trainer ",i["trainer"])
+                    print("")
+                    
+                    print("se le va a revisar la prueba a cada uno de los que postularon la prueba")
+                    estudiante=int((input("ingrese el id que identifica al camper: ")))
+                    riesgoNuevo=input("que promedio tuvo el camper\n*alto\n*bajo\n: ")
+
+                    if riesgoNuevo=="alto":
+                        jsonn[1]["Estudiantes"][estudiante-1]["riesgo"] = riesgoNuevo
+                        print("El estudiante",i["nombre"],"tuvo un rendimiento alto en el modulo ",i["ruta"])
+                        guardarDatos(jsonn)
+                        print("")
+                        
+                    if riesgoNuevo=="bajo":
+                        jsonn[1]["estudiantes"][estudiante-1]["riesgo"] = riesgoNuevo
+                        guardarDatos(jsonn)
+                        print("el estudiante",i["nombre"],"tuvo un rendimiento bajo en el modulo ",i["ruta"])
+                        print("")
+            
+            if queGrupo=="4":
+                print("===============================================================================")
+                print("   se le va a actualizar el rendiminto a cada camper que esta en el grupo T2   ")
+                print("===============================================================================")
+                
+                contador=0
+                for i in jsonn[1]["estudiantes"]:
+                    jsonn=abrirArchivo()
+                    contador= contador+1
+                    print("")
+                    print("======================================")
+                    print("    CAMPERS QUE FINALIZARON MODULO    ")
+                    print("======================================")
+                    print("id",i["id"])
+                    print("nombre",i["nombre"])
+                    print("apellido",i["apellido"])
+                    print("cedula",i["cedula"])
+                    print("acudiente",i["acudiente"])
+                    print("direcccion",i["direccion"])
+                    print("estado",i["estado"])
+                    print("ruta ",i["ruta"])
+                    print("trainer ",i["trainer"])
+                    print("")
+                    
+                    print("se le va a revisar la prueba a cada uno de los que postularon la prueba")
+                    estudiante=int((input("ingrese el id que identifica al camper: ")))
+                    riesgoNuevo=input("que promedio tuvo el camper\n*alto\n*bajo\n: ")
+
+                    if riesgoNuevo=="alto":
+                        jsonn[1]["Estudiantes"][estudiante-1]["riesgo"] = riesgoNuevo
+                        print("El estudiante",i["nombre"],"tuvo un rendimiento alto en el modulo ",i["ruta"])
+                        guardarDatos(jsonn)
+                        print("")
+                    if riesgoNuevo=="bajo":
+                        jsonn[1]["estudiantes"][estudiante-1]["riesgo"] = riesgoNuevo
+                        guardarDatos(jsonn)
+                        print("el estudiante",i["nombre"],"tuvo un rendimiento bajo en el modulo ",i["ruta"])
+                        print("") 
+                        
+                        
+        if QueDesea=="3":
+            print("Estos son los campers en riesgo ")
+            
+            if riesgoNuevo==0:
+                print(f"Estas en riesgo alto",["estudiantes"])
+            
+            if riesgoNuevo==29:
+                print(f"Estas en riesgo alto",["estudiantes"])
+                
+            if riesgoNuevo==30:
+                print(f"estas en riesgo bajo",["estudiantes"])
+                
+            if riesgoNuevo==49:
+                print(f"Estas en riesgo bajo",["estudiantes"])
+                            
+    if rol=="2":
       print("bienvenido trainer")
 
-      
 
-""""
-salones
-    apolo
-   trainer:pedro
-   temas=intro,finalie
-   rutas=java
-   ocupado=10-2 - 6-10
 
-"""
+
+
 
