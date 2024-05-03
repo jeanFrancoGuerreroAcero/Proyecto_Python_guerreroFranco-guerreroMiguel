@@ -4,35 +4,19 @@ import json
 
 def abrirArchivo():
     jsonn=[]
-    with open("PROYECTO\estudiantes.json","r") as openfile:
+    with open("estudiantes.json","r") as openfile:
         jsonn= json.load(openfile)
         return jsonn
 
 def guardarDatos(miData):
-    with open("PROYECTO\estudiantes.json","w") as outfile:
+    with open("estudiantes.json","w") as outfile:
         json.dump(miData,outfile)
         
 postuIncritos=[]
 postu=[]
 
-with open('PROYECTO\estudiantes.json', encoding= "utf-8") as openfile:
-    jsonn= json.load(openfile)
 
-for i in range (len(jsonn)):
-    if(jsonn[i]["grupo"]=="postulados"):
-        postuIncritos.append(jsonn[i])
-
-
-with open('PROYECTO\estudiantes.json', encoding= "utf-8") as openfile:
-    jsonn= json.load(openfile)
-
-for i in range (len(jsonn)):
-    if(jsonn[i]["estudiantes"]=="estado"):
-        postu.append(jsonn[i])
-
-with open("inscritos.json","w") as outfile:
-    json.dump(postu,outfile)
-    
+aprobados=[]
 #Bienvenida al usuario
 print("========================================================")
 print("   BIENVENIDO AL DEPARTAMENTO ACADEMICO DE CAMPUSLAND   ")
@@ -60,8 +44,7 @@ while booleano:
                        
     1. Inscribir postulados
     2. Ingresar nota a campers que finalizaron modulo 
-    3. Campers en peligro
-    4. Eliminar un camper
+    3. lista de reportes
     """)
 
         if QueDesea=="1":
@@ -79,12 +62,10 @@ while booleano:
                 print("cedula: ",i["cedula"])
                 print("acudiente: ",i["acudiente"])
                 print("direcccion: ",i["direccion"])
-                print("estado: ",i["estado"])
-                print("ruta: ",i["ruta"])
-                print("trainer: ",i["trainer"])
                 print("")
                 print("se le va a revisar la prueba a cada uno de los que postularon la prueba")
                 estudiante=int(input("ingrese el id que identifica al postulado :"))
+
 
                 parteTeorica=int(input("que promedio saco el postulado en la prueba teorica: "))
                 partePractica=int(input("que promedio saco el postulado en la prueba practica: "))
@@ -93,48 +74,55 @@ while booleano:
                 if prueba >=60:
                     
                     ##asignacion de estado en el que esta el camper
-                    nuevoEstado= input("En que estado estara el estudiante :")
+                    nuevoEstado= "inscrito"
                     jsonn[0]["estudiantes"][estudiante-1]["estado"] = nuevoEstado
                     guardarDatos(jsonn)
                     print("")
 
                     ##asignacion de ruta del camper nuevo
                     print("rutas \nnodeJs\njava\nNetcore")
+                    print("en el salon")
                     nuevaRuta= input("Que ruta tendra el camper :")
                     jsonn[0]["estudiantes"][estudiante-1]["ruta"] = nuevaRuta
                     guardarDatos(jsonn)
                     print("")
 
-                    ##asignacion de trainer del camper
-                    print("se le asigno la ruta al camper")
-                    trainerNuevo=input("que trainer le asignara al camper :")
-                    jsonn[0]["estudiantes"][estudiante-1]["trainer"] = trainerNuevo
-                    guardarDatos(jsonn)
-                    print("")
+                    if nuevaRuta== "java":
 
-                    ##asignacion de fecha de inicio del camper
-                    nuevaFechaIni=input("En que fecha iniciara el periodo de curso del trainer :")
-                    jsonn[0]["estudiantes"][estudiante-1]["fechaIni"] = nuevaFechaIni
-                    guardarDatos(jsonn)
-                    print("")
+                        ##asignacion de trainer del camper
+                        print("se le asigno la ruta al camper")
+                        trainerNuevo=input("que trainer le asignara al camper :")
+                        jsonn[0]["estudiantes"][estudiante-1]["trainer"] = trainerNuevo
+                        guardarDatos(jsonn)
+                        print("")
 
-                    ##fecha de finalizacion del camper
-                    nuevafechaFin=input("En que fecha finalizara el proceso el camper :")
-                    jsonn[0]["estudiantes"][estudiante-1]["fechaFin"] = nuevafechaFin
-                    guardarDatos(jsonn)
-                    print("")
+                        ##asignacion de fecha de inicio del camper
+                        nuevaFechaIni=input("En que fecha iniciara el periodo de curso del trainer :")
+                        jsonn[0]["estudiantes"][estudiante-1]["fechaIni"] = nuevaFechaIni
+                        guardarDatos(jsonn)
+                        print("")
 
-                    ##salon que se le asignara al camper
-                    print("")
-                    print("los salones que estan disponobles son\n*apolo\n*artemis\n*sputnik")
-                    nuevoSalon=input("que salon se le asignara al camper :")
-                    jsonn[0]["estudiantes"][estudiante-1]["salon"] = nuevoSalon
-                    guardarDatos(jsonn)
-                    
+                        ##fecha de finalizacion del camper
+                        nuevafechaFin=input("En que fecha finalizara el proceso el camper :")
+                        jsonn[0]["estudiantes"][estudiante-1]["fechaFin"] = nuevafechaFin
+                        guardarDatos(jsonn)
+                        print("")
+
+                        ##salon que se le asignara al camper
+                        print("")
+                        print("los salones que estan disponobles son\n*apolo\n*artemis\n*sputnik")
+                        nuevoSalon="apolo"
+                        jsonn[0]["estudiantes"][estudiante-1]["salon"] = nuevoSalon
+                        guardarDatos(jsonn)
+
+                        print("")
+                        nuevoModulo=input("Que modulo le asignara al camper")
                 else:
+                    nuevoEstado="eliminar"
+                    print("El estudiante", i["nombre"], "tuvo un rendimiento bajo en el módulo java y será eliminado ")
+                    jsonn=["eliminar"].pop(estudiante - 1)
+                    guardarDatos(jsonn)
                     print("")
-                    print("El postulante no podra estar en campus")
-                    break
             
         if QueDesea=="2":
             jsonn=abrirArchivo()
@@ -192,7 +180,7 @@ while booleano:
                         
                     else:
                         print("El estudiante", i["nombre"], "tuvo un rendimiento bajo en el módulo java y será eliminado ")
-                        jsonn=["estudiantes"].pop(estudiante - 1)
+                        jsonn=["eliminar"].pop(estudiante - 1)
                         guardarDatos(jsonn)
                         print("")
 
@@ -218,6 +206,48 @@ while booleano:
                 print("================================================")
                 print("")
                 print(postu)
+
+            elif listaDE=="2":
+                print("================================================")
+                print("CAMPERS QUE APROBARON EL EXAMEN INICIAL")
+                print("================================================")
+                ##HACER UN FILTRO QUE ME MUESTRE SOLO LOS QUE APROBARON EL EXAMEN INICIAL
+            
+            elif listaDE=="3":
+                print("================================================")
+                print("TRAINER QUE SE ENCUENTRAN TRABAJANDO CON CAMPUSLANDS")
+                print("================================================")     
+                print("")
+                print("TRAINERS")
+                print("*pedro")
+                print("*jholver")
+                print("*juanca")
+                print("*miguel")
+            elif listaDE=="4":
+                print("#######################")
+                print("CAMPERS QUE SE ENCUENTRAN CON RENDIMIENTO BAJO")
+                print("######################################")
+                print("")
+
+            elif listaDE=="5":
+                print("#############################")
+                print("CAMPERS Y TRAINERS ASOCIADOS A UNA RUTA DE ENTRENAMIENTO")
+                print("#####################################")
+                print("")
+                for i in jsonn[0]["estudiantes"]:
+                    print("RUTA JAVA")
+                    print("jholver:",i["ruta"])
+                    print("camper:",i["id"],"",["nombre"])
+            elif listaDE=="6":
+                print("#############################")
+                print("CAMPERS QUE APROBARON Y CAMPERS QUE DESAPROBARON MODULOS")
+                print("#####################################")
+                print("")
+                aprob=input("desea ver los campers que aprobraron un modulo en especifico o campers que que reprobaron un modulo en especifico")
+                if aprob=="aprobaron":
+                    print("que modulo desea revisar")
+                    print("java")
+                    print("")
             
     if rol=="2":
       print("bienvenido trainer")
