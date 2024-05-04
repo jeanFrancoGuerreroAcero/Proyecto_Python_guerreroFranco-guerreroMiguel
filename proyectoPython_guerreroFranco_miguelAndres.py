@@ -13,23 +13,21 @@ def guardarDatos(miData):
 postuIncritos=[]
 postu=[]
 
-with open('estudiantes.json', encoding= "utf-8") as openfile:
-    jsonn= json.load(openfile)
-
+jsonn=abrirArchivo()
 for i in range (len(jsonn)):
-    if(jsonn[i]["grupo"]=="postulados"):
+    if(jsonn[i]["grupo"]=="T1"):
         postuIncritos.append(jsonn[i])
 
+with open('aceptados.json',"w") as outfile:
+    jsonn= json.dump(postuIncritos,outfile)
 
-with open('aceptados.json', encoding= "utf-8") as openfile:
-    jsonn= json.load(openfile)
-
+jsonn=abrirArchivo()
 for i in range (len(jsonn)):
-    if(jsonn[i]["estudiantes"]=="estado"):
+    if(jsonn[i]["estado"]=="inscrito"):
         postu.append(jsonn[i])
 
-with open("inscritos.json","w") as outfile:
-    json.dump(postu,outfile)
+with open('pasaronPrueba.json',"w") as outfile:
+    jsonn= json.dump(postu,outfile)
 
 
 print("########################################################")
@@ -186,20 +184,51 @@ while booleano:
                 print("################################################")
                 print("")
                 print(postu)
-                        
+
+            elif listaDE=="2":
+                print("#########################")
+                print("CAMPERS QUE APROBARON EL EXAMEN INICIAL")
+                print("###########################")
+                ##HACER UN FILTRO QUE ME MUESTRE SOLO LOS QUE APROBARON EL EXAMEN INICIAL
+            
+            elif listaDE=="3":
+                print("################################################")
+                print("TRAINER QUE SE ENCUENTRAN TRABAJANDO CON CAMPUSLANDS")
+                print("########################################")     
+                print("")
+                print("TRAINERS")
+                print("*pedro")
+                print("*jholver")
+                print("*juanca")
+                print("*miguel")
+            elif listaDE=="4":
+                print("#######################")
+                print("CAMPERS QUE SE ENCUENTRAN CON RENDIMIENTO BAJO")
+                print("######################################")
+                print("")
+
+            elif listaDE=="5":
+                print("#############################")
+                print("CAMPERS Y TRAINERS ASOCIADOS A UNA RUTA DE ENTRENAMIENTO")
+                print("#####################################")
+                print("")
+                for i in jsonn[0]["estudiantes"]:
+                    print("RUTA JAVA")
+                    print("jholver:",i["ruta"])
+                    print("camper:",i["id"],"",["nombre"])
+            elif listaDE=="6":
+                print("#############################")
+                print("CAMPERS QUE APROBARON Y CAMPERS QUE DESAPROBARON MODULOS")
+                print("#####################################")
+                print("")
+                aprob=input("desea ver los campers que aprobraron un modulo en especifico o campers que que reprobaron un modulo en especifico")
+                if aprob=="aprobaron":
+                    print("que modulo desea revisar")
+                    print("java")
+                    print("")
+
+
     if rol=="trainer":
       print("bienvenido trainer")
 
-
-      
-
-""""
-salones
-    apolo
-   trainer:pedro
-   temas=intro,finalie
-   rutas=java
-   ocupado=10-2 - 6-10
-
-"""
 
