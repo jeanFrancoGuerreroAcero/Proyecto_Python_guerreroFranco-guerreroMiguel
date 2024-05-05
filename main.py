@@ -100,7 +100,11 @@ while booleano:
 
                     #asignacion de ruta del camper nuevo
                     print("ingrese la opcion en numero")
-                    print("rutas \n1.nodeJs\n2.java\n3.Netcore")
+                    print("""rutas 
+                          1.nodeJs
+                          2.java
+                          3.Netcore
+                          """)
                     opcioRuta=input("que ruta tendra el camper")
                     print("")
                     
@@ -152,7 +156,10 @@ while booleano:
                         jsonn[0]["postulados"][estudiante-1]["ocupado"] = nuevoOcupado
                         guardarDatos(jsonn)
                         
-                        print("el camper vera: \n*fundamentos de programacion\n*programacion web")
+                        print("""el camper vera: 
+                              fundamentos de programacion
+                              programacion web
+                              """)
                         print("")
                         print("programacion formal")
                         print("bases de datos")
@@ -265,9 +272,13 @@ while booleano:
             print("==================================")
             print("")
             print("los grupos que finalizaron modulo son :")
-            print("1.grupo M1")
-            print("")
-            print("ingrese la opcion enumerada")
+            print("""
+                  1. Grupo M1
+                  2. Grupo P1
+                  3. Grupo T1
+                  4. Grupo T2
+                  """)
+            print("ingrese un de las opciones enumeradas")
             queGrupo=input("Ingrese 1 para actualizar rendimiento de campers de este salon: ")
 
             if queGrupo=="1":
@@ -296,6 +307,7 @@ while booleano:
                     pruebateorica=int(input("ingrese el resultado obtenido en la prueba teorica: "))
                     pruebapractica=int(input("ingrese el resultado obtenido en la prueba practica: "))
                     
+                    #promedio de las notas de las pruebas
                     teoric=0.30*pruebateorica
                     practic=0.60*pruebapractica
                     promedio=teoric+practic
@@ -303,14 +315,14 @@ while booleano:
                     print("tuvo un promedio de ",promedio)
                     if promedio >= 60:
                         riesgoNuevo="alto"
-                        jsonn[1]["estudiantes"][estudiante-1]["riesgo"] = riesgoNuevo
+                        jsonn["estudiantes"]["riesgo"] = riesgoNuevo
                         print("el estudiante",i["nombre"],"tuvo un rendimiento alto en el modulo java")
                         guardarDatos(jsonn)
                         print("")
 
                     elif promedio<= 59:
                             riesgoNuevo="bajo"
-                            jsonn[1]["estudiantes"][estudiante-1]["riesgo"] = riesgoNuevo
+                            jsonn[1]["estudiantes"]["riesgo"] = riesgoNuevo
                             guardarDatos(jsonn)
                             print("el estudiante",i["nombre"],"tuvo un rendimiento bajo en el modulo java")
                             print("")
@@ -320,12 +332,19 @@ while booleano:
             print("        REPORTES DE CAMPERS       ")
             print("==================================")
 
-            listaDE=input("Que reporte desea revisar\n1.campers que se encuentran en estado inscrito\n2.campers que aprobaron el examen inicial\n3.entrenadores que se encuentran trabajando con campuslands\n.4campers que se encuentran con bajo rendimiento\n5.campers y trainers que se encuentran a una ruta asociados a una ruta de entrenamiento\n6.campers que perdieron y aprobaron cada uno de los modulos por su ruta de entrenamiento y entrenador encargado")
+            listaDE=input("""Que reporte desea revisar
+                          1. campers que se encuentran en estado inscrito
+                          2. campers que aprobaron el examen inicial
+                          3. entrenadores que se encuentran trabajando con campuslands
+                          4. campers que se encuentran con bajo rendimiento
+                          5. campers y trainers que se encuentran a una ruta asociados a una ruta de entrenamiento
+                          6. campers que perdieron y aprobaron cada uno de los modulos por su ruta de entrenamiento y entrenador encargado
+                          """)
 
             if listaDE=="1":
-                print("================================================")
-                print(" lista de campers que estan en estado inscritos ")
-                print("================================================")
+                print("==================================================")
+                print("  lista de campers que estan en estado inscritos  ")
+                print("==================================================")
                 print("")
                 print(postu)
 
@@ -340,12 +359,12 @@ while booleano:
                 print("============================================================")     
                 print("")
                 print("TRAINERS")
-                print("*pedro")
-                print("*jholver")
-                print("*juanca")
-                print("*miguel")
                 
-                #FILTRO QUE MUESTRE SOLO LOS QUE APROBARON EL EXAMEN INICIAL
+                print("Pedro")
+                print("Jholver")
+                print("Juanca")
+                print("Miguel")
+                
             elif listaDE=="4":
                 print("==================================================")
                 print("  CAMPERS QUE SE ENCUENTRAN CON RENDIMIENTO BAJO  ")
@@ -364,9 +383,9 @@ while booleano:
                     print("camper:",i["id"],"",["nombre"])
                     
             elif listaDE=="6":
-                print("========================================================")
-                print("CAMPERS QUE APROBARON Y CAMPERS QUE DESAPROBARON MODULOS")
-                print("========================================================")
+                print("============================================================")
+                print("  CAMPERS QUE APROBARON Y CAMPERS QUE DESAPROBARON MODULOS  ")
+                print("============================================================")
                 print("")
                 aprob=input("desea ver los campers que aprobraron un modulo en especifico o campers que que reprobaron un modulo en especifico")
                 
@@ -374,8 +393,25 @@ while booleano:
                     print("que modulo desea revisar")
                     print("java")
                     print("")
+                    
+        if QueDesea=="4":
+            Delet=input("Ingrese el ID del camper a eliminar: ")
+            Grupo=input("Ingrese en que grupo se encuentra este camper: ")
+            print("Campers en el sistema ")
+            
+            Delet=print("el Camper",["id"],["nombre"],["apellido"],["cedula"])
+            S=input("Estas Seguro? S/N ")
+            
+            S=print("Camper Eliminado ")
+            N=print("Cancelando eliminacion del camper")
 
     if rol=="trainer":
       print("bienvenido trainer")
       print("")
+      AccionTrainer=print("""¿Que desea hacer?
+                          1. Revisar Campers
+                          2. Subir notas de los campers
+                          3. revisar filtros de los campers
+                          """)
+      
       
