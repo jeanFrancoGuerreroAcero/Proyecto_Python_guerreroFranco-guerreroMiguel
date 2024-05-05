@@ -51,6 +51,7 @@ while booleano:
         print("############################")
         QueDesea=input("1.inscribir postulados\n2.ingresar nota a campers que finalizaron modulo\n3.ver lista de reportes\n4:regresar al menu de inicio \nque funcion va a realizar :")
         if QueDesea=="1":
+            jsonn=abrirArchivo()
             for i in jsonn[0]["postulados"]:
                 jsonn=abrirArchivo()
                 contador= contador+1
@@ -140,7 +141,7 @@ while booleano:
                         jsonn[0]["postulados"][estudiante-1]["modulo"] = queModulo
                         guardarDatos(jsonn)
 
-                    elif nuevaRuta=="1":
+                    elif opcioRuta=="1":
                         nuevaRuta= "nodeJs"
                         jsonn[0]["postulados"][estudiante-1]["ruta"] = nuevaRuta
                         guardarDatos(jsonn)
@@ -187,7 +188,7 @@ while booleano:
                         jsonn[0]["postulados"][estudiante-1]["modulo"] = queModulo
                         guardarDatos(jsonn)
                     
-                    elif nuevaRuta=="3":
+                    elif opcioRuta=="3":
                         nuevaRuta= "nodeJs"
                         jsonn[0]["postulados"][estudiante-1]["ruta"] = nuevaRuta
                         guardarDatos(jsonn)
