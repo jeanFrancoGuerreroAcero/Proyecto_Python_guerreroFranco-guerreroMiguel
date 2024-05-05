@@ -2,7 +2,7 @@
     {
         "id": 1,
         "grupo": "T1",
-        "estudiantes": [
+        "postulados": [
             {
                 "id": 1,
                 "cedula": "10001",
@@ -19,7 +19,7 @@
                 "fechaIni": "12-03-2024",
                 "fechaFin": "13-04-2024",
                 "ocupado": "",
-                "grupo": "T1"
+                "grupo": ""
             },
             {
                 "id": 2,
@@ -2237,4 +2237,3 @@
         ]
     }
 ]
-
