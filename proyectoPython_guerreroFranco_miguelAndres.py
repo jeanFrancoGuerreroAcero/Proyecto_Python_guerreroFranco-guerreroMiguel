@@ -12,6 +12,8 @@ def guardarDatos(miData):
 
 postuIncritos=[]
 postu=[]
+contraCoordinador=["900"]
+correoCoordinador=["stiven@gmail.com"]
 
 jsonn=abrirArchivo()
 for i in range (len(jsonn)):
@@ -21,14 +23,15 @@ for i in range (len(jsonn)):
 with open('aceptados.json',"w") as outfile:
     jsonn= json.dump(postuIncritos,outfile)
 
-jsonn=abrirArchivo()
-for i in range (len(jsonn)):
-    if(jsonn[i]["estado"]=="inscrito"):
-        postu.append(jsonn[i])
-
-with open('pasaronPrueba.json',"w") as outfile:
-    jsonn= json.dump(postu,outfile)
-
+def abriraceptados():
+    jsonn=[]
+    with open("aceptados.json","r") as openfile:
+        jsonn= json.load(openfile)
+        return jsonn
+    
+def guardarAceptados(miData):
+    with open("estudiantes.json","w") as outfile:
+        json.dump(miData,outfile)
 
 print("########################################################")
 print("###BIENVENIDO AL DEPARTAMENTO ACADEMICO DE CAMPUSLAND###")
@@ -37,7 +40,6 @@ print("escriba en numero la opcion que desea escoger")
 rol=input("que rol tienes dentro de campus :\n1.trainer\n2.camper\n3.coordinador :")
 booleano=True
 
-##punto 3
 while booleano:
     contador=0
     jsonn=[]
@@ -47,9 +49,9 @@ while booleano:
         print("############################")
         print("###BIENVENIDO COORDINADOR###")
         print("############################")
-        QueDesea=input("1.inscribir postulados\n2.ingresar nota a campers que finalizaron modulo\n3.ver lista de reportes\nque funcion va a realizar :")
+        QueDesea=input("1.inscribir postulados\n2.ingresar nota a campers que finalizaron modulo\n3.ver lista de reportes\n4:regresar al menu de inicio \nque funcion va a realizar :")
         if QueDesea=="1":
-            for i in jsonn[0]["estudiantes"]:
+            for i in jsonn[0]["postulados"]:
                 jsonn=abrirArchivo()
                 contador= contador+1
                 print("")
@@ -63,55 +65,167 @@ while booleano:
                 print("acudiente:",i["acudiente"])
                 print("direcccion:",i["direccion"])
                 print("estado:",i["estado"])
-                print("ruta :",i["ruta"])
-                print("trainer:",i["trainer"])
                 print("")
                 print("se le va a revisar la prueba a cada uno de los que postularon la prueba")
                 estudiante=int(input("ingrese el id que identifica al postulado :"))
-
+                
+                print("valor prueba teorica=30%")
+                print("valor prueba practica=60%")
                 parteTeorica=int(input("que promedio saco el postulado en la prueba teorica :"))
                 partePractica=int(input("que promedio saco el postulado en la prueba practica :"))
                 prueba=parteTeorica+partePractica/2
 
                 if prueba >=60:
                     ##asignacion de estado en el que esta el camper
-                    nuevoEstado= input("En que estado estara el estudiante :")
-                    jsonn[0]["estudiantes"][estudiante-1]["estado"] = nuevoEstado
+                    nuevoEstado= "isncrito"
+                    jsonn[0]["postulados"][estudiante-1]["estado"] = nuevoEstado
                     guardarDatos(jsonn)
                     print("")
 
                     ##asignacion de ruta del camper nuevo
-                    print("rutas \nnodeJs\njava\nNetcore")
-                    nuevaRuta= input("Que ruta tendra el camper :")
-                    jsonn[0]["estudiantes"][estudiante-1]["ruta"] = nuevaRuta
-                    guardarDatos(jsonn)
+                    print("ingrese la opcion en numero")
+                    print("rutas \n1.nodeJs\n2.java\n3.Netcore")
+                    opcioRuta=input("que ruta tendra el camper")
                     print("")
-
+                    if opcioRuta=="2":
+                        nuevaRuta= "java"
+                        jsonn[0]["postulados"][estudiante-1]["ruta"] = nuevaRuta
+                        guardarDatos(jsonn)
+                        print("")
                     ##asignacion de trainer del camper
-                    print("se le asigno la ruta al camper")
-                    trainerNuevo=input("que trainer le asignara al camper :")
-                    jsonn[0]["estudiantes"][estudiante-1]["trainer"] = trainerNuevo
-                    guardarDatos(jsonn)
-                    print("")
+                        print("se le asigno la ruta al camper")
+                        print("java")
+                        nuevoEstado="cursando"
+                        guardarDatos(jsonn)
+                        trainerNuevo="jholver"
+                        print("El trainer jholver es el encargado de la ruta java")
+                        jsonn[0]["postulados"][estudiante-1]["trainer"] = trainerNuevo
+                        guardarDatos(jsonn)
+                        print("")
 
-                    ##asignacion de fecha de inicio del camper
-                    nuevaFechaIni=input("En que fecha iniciara el periodo de curso del trainer :")
-                    jsonn[0]["estudiantes"][estudiante-1]["fechaIni"] = nuevaFechaIni
-                    guardarDatos(jsonn)
-                    print("")
+                        ##asignacion de fecha de inicio del camper
+                        nuevaFechaIni="12-06-2024"
+                        print("iniciara el curso el 12-06-2024")
+                        jsonn[0]["postulados"][estudiante-1]["fechaIni"] = nuevaFechaIni
+                        guardarDatos(jsonn)
+                        print("")
 
-                    ##fecha de finalizacion del camper
-                    nuevafechaFin=input("En que fecha finalizara el proceso el camper :")
-                    jsonn[0]["estudiantes"][estudiante-1]["fechaFin"] = nuevafechaFin
-                    guardarDatos(jsonn)
-                    print("")
+                        ##fecha de finalizacion del camper
+                        nuevafechaFin="30-06-2025"
+                        print("Finalizara el curso el 30-06-2025")
+                        jsonn[0]["postulados"][estudiante-1]["fechaFin"] = nuevafechaFin
+                        guardarDatos(jsonn)
+                        print("")
 
-                    ##salon que se le asignara al camper
-                    print("")
-                    print("los salones que estan disponobles son\n*apolo\n*artemis\n*sputnik")
-                    nuevoSalon=input("que salon se le asignara al camper :")
-                    jsonn[0]["estudiantes"][estudiante-1]["salon"] = nuevoSalon
-                    guardarDatos(jsonn)
+                        ##salon que se le asignara al camper
+                        print("")
+                        nuevoSalon="apolo"
+                        print("estara en el salon apolo")
+                        print("tendra clase de 6-10 de la manaña")
+                        jsonn[0]["postulados"][estudiante-1]["salon"] = nuevoSalon
+                        guardarDatos(jsonn)
+                        nuevoGrupo="M1"
+                        print("el camper estara en el grupo M1")
+                        jsonn[0]["postulados"][estudiante-1]["grupo"] = nuevoGrupo
+                        guardarDatos(jsonn)
+                        nuevoOcupado="6-10"
+                        jsonn[0]["postulados"][estudiante-1]["ocupado"] = nuevoOcupado
+                        guardarDatos(jsonn)
+                        print("el camper vera: \n*fundamentos de programacion\n*programacion web")
+                        print("")
+                        print("programacion formal")
+                        print("bases de datos")
+                        print("backend")
+                        queModulo=input("que otro modulo vera el camper :")
+                        jsonn[0]["postulados"][estudiante-1]["modulo"] = queModulo
+                        guardarDatos(jsonn)
+
+                    elif nuevaRuta=="1":
+                        nuevaRuta= "nodeJs"
+                        jsonn[0]["postulados"][estudiante-1]["ruta"] = nuevaRuta
+                        guardarDatos(jsonn)
+                        print("")
+                        ##asignacion de trainer del camper
+                        print("se le asigno la ruta al camper")
+                        print("nodeJs")
+                        trainerNuevo="miguel"
+                        print("El trainer miguel es el encargado de la ruta java")
+                        jsonn[0]["postulados"][estudiante-1]["trainer"] = trainerNuevo
+                        guardarDatos(jsonn)
+                        print("")
+
+                        ##asignacion de fecha de inicio del camper
+                        nuevaFechaIni="18-07-2024"
+                        print("iniciara el curso el 18-07-2024")
+                        jsonn[0]["postulados"][estudiante-1]["fechaIni"] = nuevaFechaIni
+                        guardarDatos(jsonn)
+                        print("")
+
+                        ##fecha de finalizacion del camper
+                        nuevafechaFin="18-07-2025"
+                        print("Finalizara el curso el 18-07-2025")
+                        jsonn[0]["postulados"][estudiante-1]["fechaFin"] = nuevafechaFin
+                        guardarDatos(jsonn)
+                        print("")
+
+                        ##salon que se le asignara al camper
+                        print("")
+                        nuevoSalon="sputnik"
+                        print("estara en el salon sputnik")
+                        print("tendra clase de 11-3 de la tarde")
+                        jsonn[0]["postulados"][estudiante-1]["salon"] = nuevoSalon
+                        guardarDatos(jsonn)
+                        nuevoOcupado="11-3"
+                        jsonn[0]["postulados"][estudiante-1]["ocupado"] = nuevoOcupado
+                        guardarDatos(jsonn)
+                        print("el camper vera: \n*fundamentos de programacion\n*programacion web")
+                        print("")
+                        print("programacion formal")
+                        print("bases de datos")
+                        print("backend")
+                        queModulo=input("que otro modulo vera el camper :")
+                        jsonn[0]["postulados"][estudiante-1]["modulo"] = queModulo
+                        guardarDatos(jsonn)
+                    
+                    elif nuevaRuta=="3":
+                        nuevaRuta= "nodeJs"
+                        jsonn[0]["postulados"][estudiante-1]["ruta"] = nuevaRuta
+                        guardarDatos(jsonn)
+                        print("")######################################################
+                        ##asignacion de trainer del camper
+                        print("se le asigno la ruta al camper")
+                        print("nodeJs")
+                        trainerNuevo="juanca"
+                        print("El trainer juanca es el encargado de la ruta java")
+                        jsonn[0]["postulados"][estudiante-1]["trainer"] = trainerNuevo
+                        guardarDatos(jsonn)
+                        print("")
+
+                        ##asignacion de fecha de inicio del camper
+                        nuevaFechaIni="20-08-2024"
+                        print("iniciara el curso el 20-08-2024")
+                        jsonn[0]["postulados"][estudiante-1]["fechaIni"] = nuevaFechaIni
+                        guardarDatos(jsonn)
+                        print("")
+
+                        ##fecha de finalizacion del camper
+                        nuevafechaFin="20-08-2025"
+                        print("Finalizara el curso el 20-08-2025")
+                        jsonn[0]["postulados"][estudiante-1]["fechaFin"] = nuevafechaFin
+                        guardarDatos(jsonn)
+                        print("")
+
+                        ##salon que se le asignara al camper
+                        print("")
+                        nuevoSalon="artemis"
+                        print("estara en el salon artemis")
+                        print("tendra clase de 3-7 de la noche")
+                        jsonn[0]["postulados"][estudiante-1]["salon"] = nuevoSalon
+                        guardarDatos(jsonn)
+                        nuevoOcupado="3-7"
+                        jsonn[0]["postulados"][estudiante-1]["ocupado"] = nuevoOcupado
+                        guardarDatos(jsonn)
+                
                 else:
                     print("")
                     print("el postulante no podra estar en campus")
@@ -125,10 +239,9 @@ while booleano:
             print("")
             print("los grupos que finalizaron modulo son :")
             print("1.grupo M1")
-            print("2.grupo t2")
             print("")
             print("ingrese la opcion enumerada")
-            queGrupo=input("A que grupo le va a revisar el rendimiento :")
+            queGrupo=input("Ingrese 1 para actualizar rendimiento de campers de este salon :")
 
             if queGrupo=="1":
                 print("###############################################################################")
@@ -227,8 +340,9 @@ while booleano:
                     print("java")
                     print("")
 
-
     if rol=="trainer":
       print("bienvenido trainer")
+      print("")
+      
 
 
