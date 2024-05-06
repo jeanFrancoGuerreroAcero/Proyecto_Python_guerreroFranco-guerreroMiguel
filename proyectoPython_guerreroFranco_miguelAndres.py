@@ -12,6 +12,7 @@ def guardarDatos(miData):
 
 postuIncritos=[]
 postu=[]
+inscritos=[]
 contraCoordinador=["900"]
 correoCoordinador=["stiven@gmail.com"]
 
@@ -23,6 +24,7 @@ for i in range (len(jsonn)):
 with open('aceptados.json',"w") as outfile:
     jsonn= json.dump(postuIncritos,outfile)
 
+#########
 def abriraceptados():
     jsonn=[]
     with open("aceptados.json","r") as openfile:
@@ -189,7 +191,7 @@ while booleano:
                         guardarDatos(jsonn)
                     
                     elif opcioRuta=="3":
-                        nuevaRuta= "nodeJs"
+                        nuevaRuta= "Netcore"
                         jsonn[0]["postulados"][estudiante-1]["ruta"] = nuevaRuta
                         guardarDatos(jsonn)
                         print("")######################################################
@@ -290,22 +292,22 @@ while booleano:
             print("### REPORTES DE CAMPERS ###")
             print("###########################")
 
-            listaDE=input("Que reporte desea revisar\n1.campers que se encuentran en estado inscrito\n2.campers que aprobaron el examen inicial\n3.entrenadores que se encuentran trabajando con campuslands\n.4campers que se encuentran con bajo rendimiento\n5.campers y trainers que se encuentran a una ruta asociados a una ruta de entrenamiento\n6.campers que perdieron y aprobaron cada uno de los modulos por su ruta de entrenamiento y entrenador encargado")
+            listaDE=input("Que reporte desea revisar\n1.campers que se encuentran en estado inscrito\n2.campers que aprobaron el examen inicial\n3.entrenadores que se encuentran trabajando con campuslands\n.4campers que se encuentran con bajo rendimiento\n5.campers y trainers que se encuentran a una ruta asociados a una ruta de entrenamiento\n6.campers que perdieron y aprobaron cada uno de los modulos por su ruta de entrenamiento y entrenador encargado :")
 
             if listaDE=="1":
-                jsonn=abriraceptados()
-                print("################################################")
-                print("lista de campers que estan en estado inscritos")
-                print("################################################")
-                print("")
-                for i in postuIncritos:
-                    if "estado"=="inscrito":
-                        print("id",postuIncritos[i]["id"])
-                        print("nombre",postuIncritos[i]["nombre"])
-                        print("apellido",postuIncritos[i]["apellido"])
-                        print("cedula",postuIncritos[i]["cedula"])
-                        print("acudiente",postuIncritos[i]["acudiente"])
-                        print("direcccion",postuIncritos[i]["direccion"])
+                jsonn=abrirArchivo()
+                for i in jsonn[0]["postulados"]:
+                 print("id:",i["id"])
+                 print("nombre:",i["nombre"])
+                 print("apellido:",i["apellido"])
+                 if ["estado"]==["inscrito"]:
+                    print("id:",i["id"])
+                    print("nombre:",i["nombre"])
+                    print("apellido:",i["apellido"])
+                    print("estado",i["estado"])
+                    print("hola")
+
+                    
 
             elif listaDE=="2":
                 print("#########################")
@@ -336,20 +338,78 @@ while booleano:
                 print("CAMPERS Y TRAINERS ASOCIADOS A UNA RUTA DE ENTRENAMIENTO")
                 print("#####################################")
                 print("")
-                for i in jsonn[0]["estudiantes"]:
-                    print("RUTA JAVA")
-                    print("jholver:",i["ruta"])
-                    print("camper:",i["id"],"",["nombre"])
+                print("1.java\n2.nodejs\n3.Netcore")
+                queRutaVer=input("que ruta desea revisar :")
+                if queRutaVer=="1":
+                    print("trainer encargado jholver")
+                    for i in jsonn[1]["estudiantes"]:
+                        jsonn=abrirArchivo()
+                        contador= contador+1
+                        print("")
+                        print("###############")
+                        print("POSTULANTES QUE PRESENTARON LA PRUEBA DE INGRESO")
+                        print("###############")
+                        print("id:",i["id"])
+                        print("nombre:",i["nombre"])
+                        print("apellido:",i["apellido"])
+                        print("cedula:",i["cedula"])
+                        print("acudiente:",i["acudiente"])
+                        print("direcccion:",i["direccion"])
+                        print("estado:",i["estado"])
+                if queRutaVer=="2":
+                    print("trainer encargado miguel")
+                    for i in jsonn[2]["estudiantes"]:
+                        jsonn=abrirArchivo()
+                        contador= contador+1
+                        print("")
+                        print("###############")
+                        print("POSTULANTES QUE PRESENTARON LA PRUEBA DE INGRESO")
+                        print("###############")
+                        print("id:",i["id"])
+                        print("nombre:",i["nombre"])
+                        print("apellido:",i["apellido"])
+                        print("cedula:",i["cedula"])
+                        print("acudiente:",i["acudiente"])
+                        print("direcccion:",i["direccion"])
+                        print("estado:",i["estado"])
+                
+                if queRutaVer=="3":
+                    print("trainer encargado juanca")
+                    for i in jsonn[3]["estudiantes"]:
+                        jsonn=abrirArchivo()
+                        contador= contador+1
+                        print("")
+                        print("###############")
+                        print("POSTULANTES QUE PRESENTARON LA PRUEBA DE INGRESO")
+                        print("###############")
+                        print("id:",i["id"])
+                        print("nombre:",i["nombre"])
+                        print("apellido:",i["apellido"])
+                        print("cedula:",i["cedula"])
+                        print("acudiente:",i["acudiente"])
+                        print("direcccion:",i["direccion"])
+                        print("estado:",i["estado"])
+                
             elif listaDE=="6":
                 print("#############################")
                 print("CAMPERS QUE APROBARON Y CAMPERS QUE DESAPROBARON MODULOS")
                 print("#####################################")
                 print("")
-                aprob=input("desea ver los campers que aprobraron un modulo en especifico o campers que que reprobaron un modulo en especifico")
-                if aprob=="aprobaron":
-                    print("que modulo desea revisar")
-                    print("java")
-                    print("")
+                print("1.M1\n2.P1\n3.T2 :")
+                queGupoVer=input("en que grupo desea revisar")
+                if queGupoVer=="1":
+                    for i in jsonn[1]["estudiantes"]:
+                        jsonn=abrirArchivo()
+                        contador= contador+1
+                        print("")
+                        print("###############")
+                        print("POSTULANTES QUE PRESENTARON LA PRUEBA DE INGRESO")
+                        print("###############")
+                        print("id:",i["id"])
+                        print("nombre:",i["nombre"])
+                        print("apellido:",i["apellido"])
+                        print("estado:",i["estado"])
+
 
     elif rol=="trainer":
       print("bienvenido trainer")
@@ -364,6 +424,5 @@ while booleano:
               print("")
           
 
-      
 
 
