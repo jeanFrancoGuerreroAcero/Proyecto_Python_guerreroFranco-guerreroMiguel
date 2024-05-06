@@ -78,7 +78,7 @@ while booleano:
 
                 if prueba >=60:
                     ##asignacion de estado en el que esta el camper
-                    nuevoEstado= "isncrito"
+                    nuevoEstado= "inscrito"
                     jsonn[0]["postulados"][estudiante-1]["estado"] = nuevoEstado
                     guardarDatos(jsonn)
                     print("")
@@ -293,11 +293,19 @@ while booleano:
             listaDE=input("Que reporte desea revisar\n1.campers que se encuentran en estado inscrito\n2.campers que aprobaron el examen inicial\n3.entrenadores que se encuentran trabajando con campuslands\n.4campers que se encuentran con bajo rendimiento\n5.campers y trainers que se encuentran a una ruta asociados a una ruta de entrenamiento\n6.campers que perdieron y aprobaron cada uno de los modulos por su ruta de entrenamiento y entrenador encargado")
 
             if listaDE=="1":
+                jsonn=abriraceptados()
                 print("################################################")
-                print("lista de campers que estan esn estado inscritos")
+                print("lista de campers que estan en estado inscritos")
                 print("################################################")
                 print("")
-                print(postu)
+                for i in postuIncritos:
+                    if "estado"=="inscrito":
+                        print("id",postuIncritos[i]["id"])
+                        print("nombre",postuIncritos[i]["nombre"])
+                        print("apellido",postuIncritos[i]["apellido"])
+                        print("cedula",postuIncritos[i]["cedula"])
+                        print("acudiente",postuIncritos[i]["acudiente"])
+                        print("direcccion",postuIncritos[i]["direccion"])
 
             elif listaDE=="2":
                 print("#########################")
@@ -315,6 +323,7 @@ while booleano:
                 print("*jholver")
                 print("*juanca")
                 print("*miguel")
+
             elif listaDE=="4":
                 print("#######################")
                 print("CAMPERS QUE SE ENCUENTRAN CON RENDIMIENTO BAJO")
@@ -322,6 +331,7 @@ while booleano:
                 print("")
 
             elif listaDE=="5":
+                jsonn=abrirArchivo()
                 print("#############################")
                 print("CAMPERS Y TRAINERS ASOCIADOS A UNA RUTA DE ENTRENAMIENTO")
                 print("#####################################")
@@ -341,9 +351,19 @@ while booleano:
                     print("java")
                     print("")
 
-    if rol=="trainer":
+    elif rol=="trainer":
       print("bienvenido trainer")
       print("")
+      QueTrainerEres=input("que trainer eres")
+      if QueTrainerEres=="jholver":
+          print("bienvenido trainer jholver")
+          QueQuiereTrainer=input("que desea hacer trainer\n1.ver horario\n2.notas del grupo")
+          if QueQuiereTrainer=="1":
+              print("trainer jholver tienes clase de 6 a 10 de la mañana")
+          elif QueQuiereTrainer=="2":
+              print("")
+          
+
       
 
 
