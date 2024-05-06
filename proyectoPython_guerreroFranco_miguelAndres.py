@@ -194,7 +194,7 @@ while booleano:
                         nuevaRuta= "Netcore"
                         jsonn[0]["postulados"][estudiante-1]["ruta"] = nuevaRuta
                         guardarDatos(jsonn)
-                        print("")######################################################
+                        print("")
                         ##asignacion de trainer del camper
                         print("se le asigno la ruta al camper")
                         print("nodeJs")
@@ -240,11 +240,13 @@ while booleano:
             print("### INSCRIBIR NOTAS DE CAMPERS ###")
             print("##################################")
             print("")
-            print("los grupos que finalizaron modulo son :")
+            print("que grupo finalizo modulo :")
             print("1.grupo M1")
+            print("2.grupo p1")
+            print("3.grupo T2")
             print("")
             print("ingrese la opcion enumerada")
-            queGrupo=input("Ingrese 1 para actualizar rendimiento de campers de este salon :")
+            queGrupo=input("Ingrese la opcion en numero para actualizar rendimiento de campers de este salon :")
 
             if queGrupo=="1":
                 print("###############################################################################")
@@ -277,7 +279,7 @@ while booleano:
                     if promedio >= 60:
                         riesgoNuevo="alto"
                         jsonn[1]["estudiantes"][estudiante-1]["riesgo"] = riesgoNuevo
-                        print("el estudiante",i["nombre"],"tuvo un rendimiento alto en el modulo java")###cambiar
+                        print("el estudiante",i["nombre"],"tuvo un rendimiento alto en el modulo java")
                         guardarDatos(jsonn)
                         print("")
 
@@ -287,6 +289,87 @@ while booleano:
                             guardarDatos(jsonn)
                             print("el estudiante",i["nombre"],"tuvo un rendimiento bajo en el modulo java")
                             print("")
+                if queGrupo=="2":
+                    print("###############################################################################")
+                    print("###se le va a actualizar el rendiminto a cada camper que esta en el grupo P1###")
+                    print("################################################################################")
+                    contador=0
+                    for i in jsonn[2]["estudiantes"]:
+                        jsonn=abrirArchivo()
+                        contador= contador+1
+                        print("")
+                        print("######################################")
+                        print("### CAMPERS QUE FINALIZARON MODULO ###")
+                        print("######################################")
+                        print("id",i["id"])
+                        print("nombre",i["nombre"])
+                        print("apellido",i["apellido"])
+                        print("cedula",i["cedula"])
+                        print("acudiente",i["acudiente"])
+                        print("direcccion",i["direccion"])
+                        print("estado",i["estado"])
+                        print("")
+                        print("se le va a revisar la prueba a cada uno de los que postularon la prueba")
+                        estudiante=int((input("ingrese el id que identifica al camper: ")))
+                        pruebateorica=int(input("ingrese el resultado obtenido en la prueba teorica: "))
+                        pruebapractica=int(input("ingrese el resultado obtenido en la prueba practica: "))
+                        teoric=0.30*pruebateorica
+                        practic=0.60*pruebapractica
+                        promedio=teoric+practic
+                        print("tuvo un promedio de ",promedio)
+                        if promedio >= 60:
+                            riesgoNuevo="alto"
+                            jsonn[2]["estudiantes"][estudiante-1]["riesgo"] = riesgoNuevo
+                            print("el estudiante",i["nombre"],"tuvo un rendimiento alto en la ruta nodjs")
+                            guardarDatos(jsonn)
+                            print("")
+                        elif promedio<= 59:
+                                riesgoNuevo="bajo"
+                                jsonn[2]["estudiantes"][estudiante-1]["riesgo"] = riesgoNuevo
+                                guardarDatos(jsonn)
+                                print("el estudiante",i["nombre"],"tuvo un rendimiento bajo en la ruta nodjs")
+                                print("")
+                if queGrupo=="3":
+                    print("###############################################################################")
+                    print("###se le va a actualizar el rendiminto a cada camper que esta en el grupo T2###")
+                    print("################################################################################")
+                    contador=0
+                    for i in jsonn[3]["estudiantes"]:
+                        jsonn=abrirArchivo()
+                        contador= contador+1
+                        print("")
+                        print("######################################")
+                        print("### CAMPERS QUE FINALIZARON MODULO ###")
+                        print("######################################")
+                        print("id",i["id"])
+                        print("nombre",i["nombre"])
+                        print("apellido",i["apellido"])
+                        print("cedula",i["cedula"])
+                        print("acudiente",i["acudiente"])
+                        print("direcccion",i["direccion"])
+                        print("estado",i["estado"])
+                        print("")
+                        print("se le va a revisar la prueba a cada uno de los que postularon la prueba")
+                        estudiante=int((input("ingrese el id que identifica al camper: ")))
+                        pruebateorica=int(input("ingrese el resultado obtenido en la prueba teorica: "))
+                        pruebapractica=int(input("ingrese el resultado obtenido en la prueba practica: "))
+                        teoric=0.30*pruebateorica
+                        practic=0.60*pruebapractica
+                        promedio=teoric+practic
+                        print("tuvo un promedio de ",promedio)
+                        if promedio >= 60:
+                            riesgoNuevo="alto"
+                            jsonn[3]["estudiantes"][estudiante-1]["riesgo"] = riesgoNuevo
+                            print("el estudiante",i["nombre"],"tuvo un rendimiento alto en la ruta Netcore")
+                            guardarDatos(jsonn)
+                            print("")
+
+                        elif promedio<= 59:
+                                riesgoNuevo="bajo"
+                                jsonn[3]["estudiantes"][estudiante-1]["riesgo"] = riesgoNuevo
+                                guardarDatos(jsonn)
+                                print("el estudiante",i["nombre"],"tuvo un rendimiento bajo en la ruta Netcore")
+                                print("")
         elif QueDesea=="3":
             print("###########################")
             print("### REPORTES DE CAMPERS ###")
@@ -300,14 +383,7 @@ while booleano:
                  print("id:",i["id"])
                  print("nombre:",i["nombre"])
                  print("apellido:",i["apellido"])
-                 if ["estado"]==["inscrito"]:
-                    print("id:",i["id"])
-                    print("nombre:",i["nombre"])
-                    print("apellido:",i["apellido"])
-                    print("estado",i["estado"])
-                    print("hola")
-
-                    
+                 print("estado",i["estado"])
 
             elif listaDE=="2":
                 print("#########################")
@@ -331,6 +407,44 @@ while booleano:
                 print("CAMPERS QUE SE ENCUENTRAN CON RENDIMIENTO BAJO")
                 print("######################################")
                 print("")
+                print("1.M1\n2.P1\n3.T2 :")
+                queGupoVer=input("en que grupo desea revisar")
+                if queGupoVer=="1":
+                    for i in jsonn[1]["estudiantes"]:
+                        jsonn=abrirArchivo()
+                        contador= contador+1
+                        print("")
+                        print("###############")
+                        print("CAMPERS DEL GRUPO T2")
+                        print("###############")
+                        print("id:",i["id"])
+                        print("nombre:",i["nombre"])
+                        print("apellido:",i["apellido"])
+                        print("rendimiento:",i["riesgo"])
+                if queGupoVer=="2":
+                    for i in jsonn[2]["estudiantes"]:
+                        jsonn=abrirArchivo()
+                        contador= contador+1
+                        print("")
+                        print("###############")
+                        print("CAMPERS DEL GRUPO T2")
+                        print("###############")
+                        print("id:",i["id"])
+                        print("nombre:",i["nombre"])
+                        print("apellido:",i["apellido"])
+                        print("rendimiento:",i["riesgo"])
+                if queGupoVer=="3":
+                    for i in jsonn[3]["estudiantes"]:
+                        jsonn=abrirArchivo()
+                        contador= contador+1
+                        print("")
+                        print("###############")
+                        print("CAMPERS DEL GRUPO T2")
+                        print("###############")
+                        print("id:",i["id"])
+                        print("nombre:",i["nombre"])
+                        print("apellido:",i["apellido"])
+                        print("rendimiento:",i["riesgo"])
 
             elif listaDE=="5":
                 jsonn=abrirArchivo()
@@ -347,7 +461,7 @@ while booleano:
                         contador= contador+1
                         print("")
                         print("###############")
-                        print("POSTULANTES QUE PRESENTARON LA PRUEBA DE INGRESO")
+                        print("RUTA JAVA")
                         print("###############")
                         print("id:",i["id"])
                         print("nombre:",i["nombre"])
@@ -363,7 +477,7 @@ while booleano:
                         contador= contador+1
                         print("")
                         print("###############")
-                        print("POSTULANTES QUE PRESENTARON LA PRUEBA DE INGRESO")
+                        print("RUTA NODEJS")
                         print("###############")
                         print("id:",i["id"])
                         print("nombre:",i["nombre"])
@@ -380,7 +494,7 @@ while booleano:
                         contador= contador+1
                         print("")
                         print("###############")
-                        print("POSTULANTES QUE PRESENTARON LA PRUEBA DE INGRESO")
+                        print("RUTA NETcore")
                         print("###############")
                         print("id:",i["id"])
                         print("nombre:",i["nombre"])
@@ -403,13 +517,37 @@ while booleano:
                         contador= contador+1
                         print("")
                         print("###############")
-                        print("POSTULANTES QUE PRESENTARON LA PRUEBA DE INGRESO")
+                        print("CAMPERS DEL GRUPO M1")
                         print("###############")
                         print("id:",i["id"])
                         print("nombre:",i["nombre"])
                         print("apellido:",i["apellido"])
                         print("estado:",i["estado"])
-
+                if queGupoVer=="2":
+                    for i in jsonn[2]["estudiantes"]:
+                        jsonn=abrirArchivo()
+                        contador= contador+1
+                        print("")
+                        print("###############")
+                        print("CAMPERS DEL GRUPO P1")
+                        print("###############")
+                        print("id:",i["id"])
+                        print("nombre:",i["nombre"])
+                        print("apellido:",i["apellido"])
+                        print("estado:",i["estado"])
+                if queGupoVer=="3":
+                    for i in jsonn[3]["estudiantes"]:
+                        jsonn=abrirArchivo()
+                        contador= contador+1
+                        print("")
+                        print("###############")
+                        print("CAMPERS DEL GRUPO T2")
+                        print("###############")
+                        print("id:",i["id"])
+                        print("nombre:",i["nombre"])
+                        print("apellido:",i["apellido"])
+                        print("estado:",i["estado"])
+                    
 
     elif rol=="trainer":
       print("bienvenido trainer")
