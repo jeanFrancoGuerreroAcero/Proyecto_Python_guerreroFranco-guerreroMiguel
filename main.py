@@ -27,7 +27,7 @@ with open('PROYECTO\estudiantes.json', encoding= "utf-8") as openfile:
     jsonn= json.load(openfile)
 
 for i in range (len(jsonn)):
-    if(jsonn[i]["estudiantes"]=="estado"):
+    if(jsonn[i]["postulados"]=="estado"):
         postu.append(jsonn[i])
 
 with open("inscritos.json","w") as outfile:
@@ -61,7 +61,6 @@ while booleano:
     1. Inscribir postulados
     2. Ingresar nota a campers que finalizaron modulo 
     3. Campers en peligro
-    4. Eliminar un camper
     """)
 
         if QueDesea=="1":
@@ -261,8 +260,12 @@ while booleano:
                 
                 else:
                     print("")
-                    print("el postulante no podra estar en campus")
-                    break
+                    print("El postulante no podrá estar en el campus")
+                    for camper in jsonn:
+                        if camper.get("nombre")=="nombre del Camper" and camper.get("apellido")=="apellido del Camper" and camper.get("cedula")=="cedula del Camper":
+                            jsonn.remove(camper)
+                            print("Camper eliminado")
+                            break
                 
             print("")
         if QueDesea=="2":
@@ -394,17 +397,6 @@ while booleano:
                     print("java")
                     print("")
                     
-        if QueDesea=="4":
-            Delet=input("Ingrese el ID del camper a eliminar: ")
-            Grupo=input("Ingrese en que grupo se encuentra este camper: ")
-            print("Campers en el sistema ")
-            
-            Delet=print("el Camper",["id"],["nombre"],["apellido"],["cedula"])
-            S=input("Estas Seguro? S/N ")
-            
-            S=print("Camper Eliminado ")
-            N=print("Cancelando eliminacion del camper")
-
     if rol=="trainer":
       print("bienvenido trainer")
       print("")
@@ -413,5 +405,4 @@ while booleano:
                           2. Subir notas de los campers
                           3. revisar filtros de los campers
                           """)
-      
       
