@@ -12,7 +12,6 @@ def guardarDatos(miData):
 
 postuIncritos=[]
 postu=[]
-Notas=[]
 
 with open('estudiantes.json', encoding= "utf-8") as openfile:
     jsonn= json.load(openfile)
