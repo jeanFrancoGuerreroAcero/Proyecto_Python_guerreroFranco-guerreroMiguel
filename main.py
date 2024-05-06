@@ -1,19 +1,20 @@
-#PROYECTO\estudiantes.json => si se quiere ejecutar en cualquier equipo, se debe reemplazar esta parte del codigo por la ruta alternativa del archivo
-
+#PROYECTO\estudiantes.json => si se quiere ejecutar en cualquier equipo, 
+# se debe reemplazar esta parte del codigo por la ruta alternativa del archivo
 import json
 
 def abrirArchivo():
     jsonn=[]
-    with open("PROYECTO\estudiantes.json","r") as openfile:
+    with open('PROYECTO\estudiantes.json',"r") as openfile:
         jsonn= json.load(openfile)
         return jsonn
 
 def guardarDatos(miData):
-    with open("PROYECTO\estudiantes.json","w") as outfile:
+    with open('PROYECTO\estudiantes.json',"w") as outfile:
         json.dump(miData,outfile)
-        
+
 postuIncritos=[]
 postu=[]
+Notas=[]
 
 with open('PROYECTO\estudiantes.json', encoding= "utf-8") as openfile:
     jsonn= json.load(openfile)
@@ -22,16 +23,8 @@ for i in range (len(jsonn)):
     if(jsonn[i]["grupo"]=="postulados"):
         postuIncritos.append(jsonn[i])
 
-
 with open('PROYECTO\estudiantes.json', encoding= "utf-8") as openfile:
     jsonn= json.load(openfile)
-
-for i in range (len(jsonn)):
-    if(jsonn[i]["postulados"]=="estado"):
-        postu.append(jsonn[i])
-
-with open("inscritos.json","w") as outfile:
-    json.dump(postu,outfile)
     
 #Bienvenida al usuario
 print("========================================================")
@@ -49,12 +42,14 @@ while booleano:
     contador=0
     jsonn=[]
 
+    #el usuario entra como el coordinador
     if rol=="1":
         jsonn=abrirArchivo()
         print("============================")
         print("   BIENVENIDO COORDINADOR   ")
         print("============================")
-        
+       
+    #funciones que solo puede hacer el coordinador 
         QueDesea=input("""
     que funcion vas a realizar: 
                        
@@ -63,6 +58,7 @@ while booleano:
     3. Campers en peligro
     """)
 
+    #opcion 1 de las acciones que puede realizar el coordinador
         if QueDesea=="1":
             
             for i in jsonn[0]["estudiantes"]:
@@ -119,6 +115,7 @@ while booleano:
                         nuevoEstado="cursando"
                         guardarDatos(jsonn)
                         
+                        
                         trainerNuevo="jholver"
                         print("El trainer jholver es el encargado de la ruta java")
                         jsonn[0]["postulados"][estudiante-1]["trainer"] = trainerNuevo
@@ -155,6 +152,7 @@ while booleano:
                         jsonn[0]["postulados"][estudiante-1]["ocupado"] = nuevoOcupado
                         guardarDatos(jsonn)
                         
+                        #temas o modulos que vera el camper
                         print("""el camper vera: 
                               fundamentos de programacion
                               programacion web
@@ -167,6 +165,7 @@ while booleano:
                         jsonn[0]["postulados"][estudiante-1]["modulo"] = queModulo
                         guardarDatos(jsonn)
 
+                        #asignacion de una ruta al camper
                     elif nuevaRuta=="1":
                         nuevaRuta= "nodeJs"
                         jsonn[0]["postulados"][estudiante-1]["ruta"] = nuevaRuta
@@ -204,6 +203,7 @@ while booleano:
                         jsonn[0]["postulados"][estudiante-1]["salon"] = nuevoSalon
                         guardarDatos(jsonn)
                         
+                        #si el camper no esta libre o el trainer esta ocuapdo con otro grupo
                         nuevoOcupado="11-3"
                         jsonn[0]["postulados"][estudiante-1]["ocupado"] = nuevoOcupado
                         guardarDatos(jsonn)
@@ -216,6 +216,7 @@ while booleano:
                         queModulo=input("que otro modulo vera el camper: ")
                         jsonn[0]["postulados"][estudiante-1]["modulo"] = queModulo
                         guardarDatos(jsonn)
+                    
                     
                     elif nuevaRuta=="3":
                         nuevaRuta= "nodeJs"
@@ -258,6 +259,7 @@ while booleano:
                         jsonn[0]["postulados"][estudiante-1]["ocupado"] = nuevoOcupado
                         guardarDatos(jsonn)
                 
+                #eliminar camper si no pasa el filtro 
                 else:
                     print("")
                     print("El postulante no podrá estar en el campus")
@@ -267,7 +269,7 @@ while booleano:
                             print("Camper eliminado")
                             break
                 
-            print("")
+        #opcion 2 de lo que puede realizar el coordinador
         if QueDesea=="2":
             jsonn=abrirArchivo()
             print("==================================")
@@ -290,6 +292,7 @@ while booleano:
                 print("===============================================================================")
                 contador=0
                 
+                #lista de los campers que finalizaron el modulo/filtro
                 for i in jsonn[1]["estudiantes"]:
                     jsonn=abrirArchivo()
                     contador= contador+1
@@ -329,7 +332,7 @@ while booleano:
                             guardarDatos(jsonn)
                             print("el estudiante",i["nombre"],"tuvo un rendimiento bajo en el modulo java")
                             print("")
-                            
+        #opcion 3 del coordinador       
         elif QueDesea=="3":
             print("==================================")
             print("        REPORTES DE CAMPERS       ")
@@ -343,7 +346,8 @@ while booleano:
                           5. campers y trainers que se encuentran a una ruta asociados a una ruta de entrenamiento
                           6. campers que perdieron y aprobaron cada uno de los modulos por su ruta de entrenamiento y entrenador encargado
                           """)
-
+            
+            #campers que ya estan inscritos en el programa
             if listaDE=="1":
                 print("==================================================")
                 print("  lista de campers que estan en estado inscritos  ")
@@ -351,11 +355,13 @@ while booleano:
                 print("")
                 print(postu)
 
+            #campers que pasaron el filtro
             elif listaDE=="2":
                 print("===========================================")
                 print("  CAMPERS QUE APROBARON EL EXAMEN INICIAL  ")
                 print("===========================================")
-                
+            
+            #trainers que ya estan a disposion del programa 
             elif listaDE=="3":
                 print("============================================================")
                 print("    TRAINER QUE SE ENCUENTRAN TRABAJANDO CON CAMPUSLANDS    ")
@@ -363,28 +369,33 @@ while booleano:
                 print("")
                 print("TRAINERS")
                 
+                #nombre de los trainers a disposion del programa
                 print("Pedro")
                 print("Jholver")
                 print("Juanca")
                 print("Miguel")
-                
+            
+            #campers con bajo rendimiento
             elif listaDE=="4":
                 print("==================================================")
                 print("  CAMPERS QUE SE ENCUENTRAN CON RENDIMIENTO BAJO  ")
                 print("==================================================")
                 print("")
 
+            #campers y trainers que ya se encuentran ocupados
             elif listaDE=="5":
                 print("============================================================")
                 print("  CAMPERS Y TRAINERS ASOCIADOS A UNA RUTA DE ENTRENAMIENTO  ")
                 print("============================================================")
                 print("")
                 
+            #ruta del camper 
                 for i in jsonn[0]["estudiantes"]:
                     print("RUTA JAVA")
                     print("jholver:",i["ruta"])
                     print("camper:",i["id"],"",["nombre"])
-                    
+            
+            #campers que aprovaron y desaprobaron los modulos       
             elif listaDE=="6":
                 print("============================================================")
                 print("  CAMPERS QUE APROBARON Y CAMPERS QUE DESAPROBARON MODULOS  ")
@@ -392,17 +403,33 @@ while booleano:
                 print("")
                 aprob=input("desea ver los campers que aprobraron un modulo en especifico o campers que que reprobaron un modulo en especifico")
                 
+                #por si quiere revisar los modulos de un camper en especifico
                 if aprob=="aprobaron":
                     print("que modulo desea revisar")
                     print("java")
                     print("")
                     
-    if rol=="trainer":
-      print("bienvenido trainer")
-      print("")
-      AccionTrainer=print("""¿Que desea hacer?
-                          1. Revisar Campers
-                          2. Subir notas de los campers
-                          3. revisar filtros de los campers
-                          """)
-      
+    #el usuario ingreso como trainer
+    if rol == "2":
+        print("¡Bienvenido, Trainer!")
+        print("")
+    
+    # Menú de acciones del Trainer
+        print("""¿Qué desea hacer?
+          1. Subir notas de los Campers
+          """)
+    
+    opcion=input("Ingrese el número de la acción que desea realizar: ")
+    
+    if opcion=="1":
+        cantidad_notas=int(input("¿Cuántas notas desea agregar? "))
+        notas=[]
+        
+        #Almacenamiento de las notas que ingrese el trainer
+        for i in range(cantidad_notas):
+            nota = float(input(f"Ingrese la nota {i + 1}: "))
+            notas.append(nota)
+        
+        
+    else:
+        print("seleccione una opción válida (1-3)")
