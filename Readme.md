@@ -1,5 +1,3 @@
-<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
 # proyecto de filtro en colaboracion con jean franco guerrero y miguel andres guerrero
 
 Se realizo un proyecto en colaboracion en donde se hizo un software que permite a los estudiantes y a el coordinador hacer uso de este.
@@ -21,9 +19,9 @@ Se realizo un proyecto en colaboracion en donde se hizo un software que permite 
 
 ## Caracteristicas
 
-<i class='bx bx-folder'></i> El json de estudiantes contiene la informacion personal y estudiantil de estos 
+- El json de estudiantes contiene la informacion personal y - estudiantil de estos 
 
-<i class='bx bx-folder'></i> El archivo proyectoPython
+- El archivo proyectoPython
 
 ## Instrucciones de uso 
 - Clonar o descargar el repositorio 
