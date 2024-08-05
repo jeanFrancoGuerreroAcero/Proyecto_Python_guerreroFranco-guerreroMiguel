@@ -10,10 +10,10 @@ Se realizo un proyecto en colaboracion en donde se hizo un software que permite 
 - uso: Seguir la serie de opciones que se nos muestra en los menus dependiendo lo que quieras hacer dentro del programa 
 
 ## funcionamiento 
-<i class='bx bx-brightness'></i> Tiene un funcionamiento sencillo ya que los menus cuentan con los especificaiones para la tarea que quieres realizar y el  cargo que tienes dentro del programa 
+- Tiene un funcionamiento sencillo ya que los menus cuentan con los especificaiones para la tarea que quieres realizar y el  cargo que tienes dentro del programa 
 
 ## Lenguajes usados 
-<i class='bx bxl-python'></i> Python
+- Python
 
 ## Estructura del proyecto 
 
@@ -26,9 +26,9 @@ Se realizo un proyecto en colaboracion en donde se hizo un software que permite 
 <i class='bx bx-folder'></i> El archivo proyectoPython
 
 ## Instrucciones de uso 
-<i class='bx bx-paperclip' ></i> Clonar o descargar el repositorio 
+- Clonar o descargar el repositorio 
 
-<i class='bx bx-paperclip' ></i> ejecutarlo mediante la terminal o descargar la extension code runer en visual code 
+- ejecutarlo mediante la terminal o descargar la extension code runer en visual code 
 
 ## desarrolado por 
-<i class='bx bx-child'></i> jean franco guerrero acero, estudiante de Campuslands para prueba de proyecto de python 
+- jean franco guerrero acero, estudiante de Campuslands para prueba de proyecto de python 
