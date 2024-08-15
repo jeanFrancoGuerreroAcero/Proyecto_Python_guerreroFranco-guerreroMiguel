@@ -663,4 +663,4 @@ while booleano:
     else:
         print("seleccione una opción válida (1-3)")
 
-#Proyecto Miguel Guerrero & Franco Guerrero
+#Proyecto Miguel Guerrero & Franco Guerrero C.C 1090381839 C.C 
