@@ -60,6 +60,8 @@ while booleano:
     contador=0
     jsonn=[]
 
+    #####seccion de registro de ventas
+
     if rol=="4":
         RegistroAbrir=abrirRegistro()
         print("-------------------------------------")
@@ -71,6 +73,14 @@ while booleano:
         print("-Inactiva")
         print("-Finalizada")
         secion=input("")
+
+        entradas={
+            "actividades_realizadas_durante_sesion ":actividades,
+            "Estado_de_la_sesion":secion 
+        }
+        
+        registro.append(entradas)
+        guarditoRegistro(registro)
 
 
     #el usuario entra como el coordinador
