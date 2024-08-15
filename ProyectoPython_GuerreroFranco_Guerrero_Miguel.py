@@ -1,14 +1,19 @@
 import json
+from datetime import datetime
 
-def abrirArchivo():
-    jsonn=[]
-    with open('estudiantes.json',"r") as openfile:
-        jsonn= json.load(openfile)
-        return jsonn
+def abrir_archivo(nombre_archivo="Info.json"):
+    try:
+        with open(nombre_archivo, "r") as openfile:
+            return json.load(openfile)
+    except FileNotFoundError:
+        return {}
 
-def guardarDatos(miData):
-    with open('estudiantes.json',"w") as outfile:
-        json.dump(miData,outfile)
+#def guardarDatos(miData):
+#    with open('estudiantes.json',"w") as outfile:
+#        json.dump(miData,outfile, indent=4)
+def guardar_archivo(nombre_archivo="estudiantes.json", data=None):
+    with open(nombre_archivo, "w") as outfile:
+        json.dump(data, outfile, indent=4)
 
 postuIncritos=[]
 postu=[]
@@ -54,6 +59,19 @@ rol=input("""Que rol tienes dentro de campus:
     3. Camper
     4. Registro de entradas
     """)
+
+if rol==1:
+    datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    guardar_archivo("Registro.json")
+
+if rol==2:
+    datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    guardar_archivo("Registro.json")
+
+if rol==3:
+    datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    guardar_archivo("Registro.json")
+
 booleano=True
 
 while booleano:
@@ -85,26 +103,20 @@ while booleano:
 
     #el usuario entra como el coordinador
     if rol=="1":
-        jsonn=abrirArchivo()
+        data = abrir_archivo("estudiantes.json")
         print("============================")
         print("   BIENVENIDO COORDINADOR   ")
-        print("============================")
-       
-    #funciones que solo puede hacer el coordinador 
-        QueDesea=input("""
-    que funcion vas a realizar: 
-                       
-    1. Inscribir postulados
-    2. Ingresar nota a campers que finalizaron modulo 
-    3. Campers en peligro
-    """)
+        print("============================") 
+        print("1. Inscribir postulados")
+        print("2. Ingresar nota a campers que finalizaron modulo") 
+        print("3. Campers en peligro")
+    QueDesea=input("que funcion vas a realizar:")
 
     #opcion 1 de las acciones que puede realizar el coordinador
-
-        if QueDesea=="1":
+    if QueDesea=="1":
             
-            for i in jsonn[0]["estudiantes"]:
-                jsonn=abrirArchivo()
+            for i in jsonn[0]['postulados']:
+                data = abrir_archivo("estudiantes.json")
                 contador= contador+1
                 print("")
                 print("================================================")
@@ -132,7 +144,7 @@ while booleano:
                     #asignacion de estado en el que esta el camper
                     nuevoEstado= "isncrito"
                     jsonn[0]["postulados"][estudiante-1]["estado"] = nuevoEstado
-                    guardarDatos(jsonn)
+                    guardar_archivo("estudiantes.json", data)
                     print("")
 
                     #asignacion de ruta del camper nuevo
@@ -148,34 +160,34 @@ while booleano:
                     if opcioRuta=="2":
                         nuevaRuta= "java"
                         jsonn[0]["postulados"][estudiante-1]["ruta"] = nuevaRuta
-                        guardarDatos(jsonn)
+                        guardar_archivo("estudiantes.json", data)
                         print("")
                         
                         #asignacion de trainer del camper
                         print("se le asigno la ruta al camper")
                         print("java")
                         nuevoEstado="cursando"
-                        guardarDatos(jsonn)
+                        guardar_archivo("estudiantes.json", data)
                         
                         
                         trainerNuevo="jholver"
                         print("El trainer jholver es el encargado de la ruta java")
                         jsonn[0]["postulados"][estudiante-1]["trainer"] = trainerNuevo
-                        guardarDatos(jsonn)
+                        guardar_archivo("estudiantes.json", data)
                         print("")
 
                         #asignacion de fecha de inicio del camper
                         nuevaFechaIni="12-06-2024"
                         print("iniciara el curso el 12-06-2024")
                         jsonn[0]["postulados"][estudiante-1]["fechaIni"] = nuevaFechaIni
-                        guardarDatos(jsonn)
+                        guardar_archivo("estudiantes.json", data)
                         print("")
 
                         #fecha de finalizacion del camper
                         nuevafechaFin="30-06-2025"
                         print("Finalizara el curso el 30-06-2025")
                         jsonn[0]["postulados"][estudiante-1]["fechaFin"] = nuevafechaFin
-                        guardarDatos(jsonn)
+                        guardar_archivo("estudiantes.json", data)
                         print("")
 
                         #salon que se le asignara al camper
@@ -184,15 +196,16 @@ while booleano:
                         print("estara en el salon apolo")
                         print("tendra clase de 6-10 de la manaña")
                         jsonn[0]["postulados"][estudiante-1]["salon"] = nuevoSalon
-                        guardarDatos(jsonn)
+                        guardar_archivo("estudiantes.json", data)
                         
                         nuevoGrupo="M1"
                         print("el camper estara en el grupo M1")
                         jsonn[0]["postulados"][estudiante-1]["grupo"] = nuevoGrupo
-                        guardarDatos(jsonn)
+                        guardar_archivo("estudiantes.json", data)
+
                         nuevoOcupado="6-10"
                         jsonn[0]["postulados"][estudiante-1]["ocupado"] = nuevoOcupado
-                        guardarDatos(jsonn)
+                        guardar_archivo("estudiantes.json", data)
                         
                         #temas o modulos que vera el camper
                         print("""el camper vera: 
@@ -205,13 +218,13 @@ while booleano:
                         print("backend")
                         queModulo=input("que otro modulo vera el camper :")
                         jsonn[0]["postulados"][estudiante-1]["modulo"] = queModulo
-                        guardarDatos(jsonn)
+                        guardar_archivo("estudiantes.json", data)
 
                         #asignacion de una ruta al camper
                     elif nuevaRuta=="1":
                         nuevaRuta= "nodeJs"
                         jsonn[0]["postulados"][estudiante-1]["ruta"] = nuevaRuta
-                        guardarDatos(jsonn)
+                        guardar_archivo("estudiantes.json", data)
                         print("")
                         
                         #asignacion de trainer del camper
@@ -220,21 +233,21 @@ while booleano:
                         trainerNuevo="miguel"
                         print("El trainer miguel es el encargado de la ruta java")
                         jsonn[0]["postulados"][estudiante-1]["trainer"] = trainerNuevo
-                        guardarDatos(jsonn)
+                        guardar_archivo("estudiantes.json", data)
                         print("")
 
                         #asignacion de fecha de inicio del camper
                         nuevaFechaIni="18-07-2024"
                         print("iniciara el curso el 18-07-2024")
                         jsonn[0]["postulados"][estudiante-1]["fechaIni"] = nuevaFechaIni
-                        guardarDatos(jsonn)
+                        guardar_archivo("estudiantes.json", data)
                         print("")
 
                         #fecha de finalizacion del camper
                         nuevafechaFin="18-07-2025"
                         print("Finalizara el curso el 18-07-2025")
                         jsonn[0]["postulados"][estudiante-1]["fechaFin"] = nuevafechaFin
-                        guardarDatos(jsonn)
+                        guardar_archivo("estudiantes.json", data)
                         print("")
 
                         #salon que se le asignara al camper
@@ -243,12 +256,12 @@ while booleano:
                         print("estara en el salon sputnik")
                         print("tendra clase de 11-3 de la tarde")
                         jsonn[0]["postulados"][estudiante-1]["salon"] = nuevoSalon
-                        guardarDatos(jsonn)
+                        guardar_archivo("estudiantes.json", data)
                         
                         #si el camper no esta libre o el trainer esta ocuapdo con otro grupo
                         nuevoOcupado="11-3"
                         jsonn[0]["postulados"][estudiante-1]["ocupado"] = nuevoOcupado
-                        guardarDatos(jsonn)
+                        guardar_archivo("estudiantes.json", data)
                         
                         print("el camper vera: \n*fundamentos de programacion\n*programacion web")
                         print("")
@@ -257,13 +270,13 @@ while booleano:
                         print("backend")
                         queModulo=input("que otro modulo vera el camper: ")
                         jsonn[0]["postulados"][estudiante-1]["modulo"] = queModulo
-                        guardarDatos(jsonn)
+                        guardar_archivo("estudiantes.json", data)
                     
                     
                     elif nuevaRuta=="3":
                         nuevaRuta= "nodeJs"
                         jsonn[0]["postulados"][estudiante-1]["ruta"] = nuevaRuta
-                        guardarDatos(jsonn)
+                        guardar_archivo("estudiantes.json", data)
                         print("")
                         
                         #asignacion de trainer del camper
@@ -272,21 +285,21 @@ while booleano:
                         trainerNuevo="juanca"
                         print("El trainer juanca es el encargado de la ruta java")
                         jsonn[0]["postulados"][estudiante-1]["trainer"] = trainerNuevo
-                        guardarDatos(jsonn)
+                        guardar_archivo("estudiantes.json", data)
                         print("")
 
                         #asignacion de fecha de inicio del camper
                         nuevaFechaIni="20-08-2024"
                         print("iniciara el curso el 20-08-2024")
                         jsonn[0]["postulados"][estudiante-1]["fechaIni"] = nuevaFechaIni
-                        guardarDatos(jsonn)
+                        guardar_archivo("estudiantes.json", data)
                         print("")
 
                         #fecha de finalizacion del camper
                         nuevafechaFin="20-08-2025"
                         print("Finalizara el curso el 20-08-2025")
                         jsonn[0]["postulados"][estudiante-1]["fechaFin"] = nuevafechaFin
-                        guardarDatos(jsonn)
+                        guardar_archivo("estudiantes.json", data)
                         print("")
 
                         #salon que se le asignara al camper
@@ -295,11 +308,11 @@ while booleano:
                         print("estara en el salon artemis")
                         print("tendra clase de 3-7 de la noche")
                         jsonn[0]["postulados"][estudiante-1]["salon"] = nuevoSalon
-                        guardarDatos(jsonn)
+                        guardar_archivo("estudiantes.json", data)
                         
                         nuevoOcupado="3-7"
                         jsonn[0]["postulados"][estudiante-1]["ocupado"] = nuevoOcupado
-                        guardarDatos(jsonn)
+                        guardar_archivo("estudiantes.json", data)
                 
                 #eliminar camper si no pasa el filtro 
                 else:
@@ -312,8 +325,8 @@ while booleano:
                             break
                 
         #opcion 2 de lo que puede realizar el coordinador
-        if QueDesea=="2":
-            jsonn=abrirArchivo()
+    if QueDesea=="2":
+            data = abrir_archivo("estudiantes.json")
             print("==================================")
             print("    INSCRIBIR NOTAS DE CAMPERS    ")
             print("==================================")
@@ -335,8 +348,8 @@ while booleano:
                 contador=0
                 
                 #lista de los campers que finalizaron el modulo/filtro
-                for i in jsonn[1]["estudiantes"]:
-                    jsonn=abrirArchivo()
+                for i in estudiante[0]["postulados"]:
+                    data = abrir_archivo("estudiantes.json")
                     contador= contador+1
                     print("")
                     print("======================================")
@@ -365,13 +378,13 @@ while booleano:
                         riesgoNuevo="alto"
                         jsonn["estudiantes"]["riesgo"] = riesgoNuevo
                         print("el estudiante",i["nombre"],"tuvo un rendimiento alto en el modulo java")
-                        guardarDatos(jsonn)
+                        guardar_archivo("estudiantes.json", data)
                         print("")
 
                     elif promedio<= 59:
                             riesgoNuevo="bajo"
                             jsonn[1]["estudiantes"]["riesgo"] = riesgoNuevo
-                            guardarDatos(jsonn)
+                            guardar_archivo("estudiantes.json", data)
                             print("el estudiante",i["nombre"],"tuvo un rendimiento bajo en el modulo java")
                             print("")
                             
@@ -382,7 +395,7 @@ while booleano:
                         contador=0
                         
                         for i in jsonn[2]["estudiantes"]:
-                            jsonn=abrirArchivo()
+                            data = abrir_archivo("estudiantes.json")
                             contador= contador+1
                             print("")
                             print("######################################")
@@ -409,13 +422,13 @@ while booleano:
                             riesgoNuevo="alto"
                             jsonn[2]["estudiantes"][estudiante-1]["riesgo"] = riesgoNuevo
                             print("el estudiante",i["nombre"],"tuvo un rendimiento alto en la ruta nodjs")
-                            guardarDatos(jsonn)
+                            guardar_archivo("estudiantes.json", data)
                             print("")
                             
                         elif promedio<= 59:
                                 riesgoNuevo="bajo"
                                 jsonn[2]["estudiantes"][estudiante-1]["riesgo"] = riesgoNuevo
-                                guardarDatos(jsonn)
+                                guardar_archivo("estudiantes.json", data)
                                 print("el estudiante",i["nombre"],"tuvo un rendimiento bajo en la ruta nodjs")
                                 print("")
                     
@@ -426,7 +439,7 @@ while booleano:
                     contador=0
                     
                     for i in jsonn[3]["estudiantes"]:
-                        jsonn=abrirArchivo()
+                        data = abrir_archivo("estudiantes.json")
                         contador= contador+1
                         print("")
                         print("######################################")
@@ -453,23 +466,23 @@ while booleano:
                             riesgoNuevo="alto"
                             jsonn[3]["estudiantes"][estudiante-1]["riesgo"] = riesgoNuevo
                             print("el estudiante",i["nombre"],"tuvo un rendimiento alto en la ruta Netcore")
-                            guardarDatos(jsonn)
+                            guardar_archivo("estudiantes.json", data)
                             print("")
 
                         elif promedio<= 59:
                                 riesgoNuevo="bajo"
                                 jsonn[3]["estudiantes"][estudiante-1]["riesgo"] = riesgoNuevo
-                                guardarDatos(jsonn)
+                                guardar_archivo("estudiantes.json", data)
                                 print("el estudiante",i["nombre"],"tuvo un rendimiento bajo en la ruta Netcore")
                                 print("")
                             
         #opcion 3 del coordinador       
-        elif QueDesea=="3":
+    if QueDesea=="3":
             print("===========================")
             print("    REPORTES DE CAMPERS    ")
             print("===========================")
 
-            listaDE=input("""Que reporte desea revisar
+            print("""Que reporte desea revisar
                           1.campers que se encuentran en estado inscrito
                           2.campers que aprobaron el examen inicial
                           3.entrenadores que se encuentran trabajando con campuslands
@@ -477,9 +490,10 @@ while booleano:
                           5.campers y trainers que se encuentran a una ruta asociados a una ruta de entrenamiento
                           6.campers que perdieron y aprobaron cada uno de los modulos por su ruta de entrenamiento y entrenador encargado
                           """)
+            listaDE=input("Que reporte desea revisar")
 
             if listaDE=="1":
-                jsonn=abrirArchivo()
+                data = abrir_archivo("estudiantes.json")
                 for i in jsonn[0]["postulados"]:
                  print("id:",i["id"])
                  print("nombre:",i["nombre"])
@@ -490,7 +504,8 @@ while booleano:
                 print("===========================================")
                 print("  CAMPERS QUE APROBARON EL EXAMEN INICIAL  ")
                 print("===========================================")
-                jsonn=abrirArchivo()
+                data = abrir_archivo("estudiantes.json")
+
                 for i in jsonn[0]["postulados"]:
                  print("id:",i["id"])
                  print("nombre:",i["nombre"])
@@ -524,7 +539,7 @@ while booleano:
                 if queGupoVer=="1":
                     
                     for i in jsonn[1]["estudiantes"]:
-                        jsonn=abrirArchivo()
+                        data = abrir_archivo("estudiantes.json")
                         contador= contador+1
                         print("")
                         print("========================")
@@ -537,7 +552,7 @@ while booleano:
                         
                 if queGupoVer=="2":
                     for i in jsonn[2]["estudiantes"]:
-                        jsonn=abrirArchivo()
+                        data = abrir_archivo("estudiantes.json")
                         contador= contador+1
                         print("")
                         print("========================")
@@ -550,7 +565,7 @@ while booleano:
                         
                 if queGupoVer=="3":
                     for i in jsonn[3]["estudiantes"]:
-                        jsonn=abrirArchivo()
+                        data = abrir_archivo("estudiantes.json")
                         contador= contador+1
                         print("")
                         print("========================")
@@ -562,7 +577,7 @@ while booleano:
                         print("rendimiento:",i["riesgo"])
 
             elif listaDE=="5":
-                jsonn=abrirArchivo()
+                data = abrir_archivo("estudiantes.json")
                 print("============================================================")
                 print("  CAMPERS Y TRAINERS ASOCIADOS A UNA RUTA DE ENTRENAMIENTO  ")
                 print("============================================================")
@@ -578,7 +593,7 @@ while booleano:
                     print("trainer encargado jholver")
                     
                     for i in jsonn[1]["estudiantes"]:
-                        jsonn=abrirArchivo()
+                        data = abrir_archivo("estudiantes.json")
                         contador= contador+1
                         print("")
                         print("===============")
@@ -596,7 +611,7 @@ while booleano:
                     print("trainer encargado miguel")
                     
                     for i in jsonn[2]["estudiantes"]:
-                        jsonn=abrirArchivo()
+                        data = abrir_archivo("estudiantes.json")
                         contador= contador+1
                         print("")
                         print("===============")
@@ -614,7 +629,7 @@ while booleano:
                     print("trainer encargado juanca")
                     for i in jsonn[3]["estudiantes"]:
                         
-                        jsonn=abrirArchivo()
+                        data = abrir_archivo("estudiantes.json")
                         contador= contador+1
                         print("")
                         print("================")
@@ -643,7 +658,7 @@ while booleano:
                 if queGupoVer=="1":
                     
                     for i in jsonn[1]["estudiantes"]:
-                        jsonn=abrirArchivo()
+                        data = abrir_archivo("estudiantes.json")
                         contador= contador+1
                         print("")
                         print("============================")
@@ -657,7 +672,7 @@ while booleano:
                 if queGupoVer=="2":
                     
                     for i in jsonn[2]["estudiantes"]:
-                        jsonn=abrirArchivo()
+                        data = abrir_archivo("estudiantes.json")
                         contador= contador+1
                         print("")
                         print("=========================")
@@ -671,7 +686,7 @@ while booleano:
                 if queGupoVer=="3":
                     
                     for i in jsonn[3]["estudiantes"]:
-                        jsonn=abrirArchivo()
+                        data = abrir_archivo("estudiantes.json")
                         contador= contador+1
                         print("")
                         print("==========================")
@@ -707,3 +722,5 @@ while booleano:
         
     else:
         print("seleccione una opción válida (1-3)")
+
+#Proyecto Miguel Guerrero & Franco Guerrero C.C 1090381839 C.C 
