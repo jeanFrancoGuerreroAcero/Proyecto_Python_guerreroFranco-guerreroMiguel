@@ -376,7 +376,7 @@ while booleano:
                     
                 if queGrupo=="3":
                     print("###############################################################################")
-                    print("###se le va a actualizar el rendiminto a cada camper que esta en el grupo T2###")
+                    print("######SE LE VA A ACTUALIZAR EL RENDIMINETO DE CADA CAMPER EN EL GRUPO T2######")
                     print("################################################################################")
                     contador=0
                     
