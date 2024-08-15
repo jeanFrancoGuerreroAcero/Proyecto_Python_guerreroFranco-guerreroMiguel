@@ -22,6 +22,26 @@ for i in range (len(jsonn)):
 
 with open('estudiantes.json', encoding= "utf-8") as openfile:
     jsonn= json.load(openfile)
+
+##jeson guardado de registro de entradas
+def guardarRegistro():
+    try:
+        with open("registro","r")as openfile:
+            return json.load(openfile)
+    except FileNotFoundError:
+        return []
+    
+def guarditoRegistro(miData):
+    with open('registro.json',"w") as outfile:
+        json.dump(miData,outfile)
+
+def abrirRegistro():
+    miJson=[]
+    with open ("./registro","r")as openfile:
+        miJson=json.load(openfile)
+    return miJson
+    
+registro=guardarRegistro()
     
 #Bienvenida al usuario
 print("========================================================")
@@ -40,6 +60,19 @@ while booleano:
     contador=0
     jsonn=[]
 
+    if rol=="4":
+        RegistroAbrir=abrirRegistro()
+        print("-------------------------------------")
+        print("--BIENVENIDO A REGISTRO DE ENTRADAS--")
+        print("-------------------------------------")
+        actividades=input("Que actividades se realizaron dentro de la jornada: ")
+        print("En que estado esta la sesion")
+        print("-Activa")
+        print("-Inactiva")
+        print("-Finalizada")
+        secion=input("")
+
+
     #el usuario entra como el coordinador
     if rol=="1":
         jsonn=abrirArchivo()
@@ -57,6 +90,7 @@ while booleano:
     """)
 
     #opcion 1 de las acciones que puede realizar el coordinador
+
         if QueDesea=="1":
             
             for i in jsonn[0]["estudiantes"]:
