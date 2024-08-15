@@ -1,16 +1,13 @@
 import json
 from datetime import datetime
 
-def abrir_archivo(nombre_archivo="Info.json"):
+def abrir_archivo(nombre_archivo="estudiantes.json"):
     try:
         with open(nombre_archivo, "r") as openfile:
             return json.load(openfile)
     except FileNotFoundError:
         return {}
 
-#def guardarDatos(miData):
-#    with open('estudiantes.json',"w") as outfile:
-#        json.dump(miData,outfile, indent=4)
 def guardar_archivo(nombre_archivo="estudiantes.json", data=None):
     with open(nombre_archivo, "w") as outfile:
         json.dump(data, outfile, indent=4)
@@ -38,7 +35,7 @@ rol=input("""Que rol tienes dentro de campus:
     2. Trainer
     3. Camper 
     """)
-
+data = abrir_archivo("Registro.json")
 if rol==1:
     datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     guardar_archivo("Registro.json")
@@ -70,7 +67,7 @@ while booleano:
 
     #opcion 1 de las acciones que puede realizar el coordinador
     if QueDesea=="1":
-            
+            jsonn = abrir_archivo()
             for i in jsonn[0]['postulados']:
                 data = abrir_archivo("estudiantes.json")
                 contador= contador+1
