@@ -1,7 +1,7 @@
 import json
 from datetime import datetime
 
-def abrir_archivo(nombre_archivo="Info.json"):
+def abrir_archivo(nombre_archivo="info.json"):
     try:
         with open(nombre_archivo, "r") as openfile:
             return json.load(openfile)
