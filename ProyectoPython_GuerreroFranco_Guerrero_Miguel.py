@@ -25,6 +25,9 @@ for i in range (len(jsonn)):
 with open('estudiantes.json', encoding= "utf-8") as openfile:
     jsonn= json.load(openfile)
     
+Nombre=input(f"Welcome user, Enter your name: ")
+ide=input("Ingresa tu ID: ")
+
 #Bienvenida al usuario
 print("========================================================")
 print("   BIENVENIDO AL DEPARTAMENTO ACADEMICO DE CAMPUSLAND   ")
@@ -33,18 +36,31 @@ rol=input("""Que rol tienes dentro de campus:
           
     1. Coordinador
     2. Trainer
-    3. Camper 
+    3. Camper
     """)
-data = abrir_archivo("Registro.json")
+
+nuevo_pedido = {
+        "id": (ide),
+        "Ingreso": datetime,
+        "Nombre": {Nombre},
+    }
+
 if rol==1:
+    data = abrir_archivo("Registro.json")
     datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     guardar_archivo("Registro.json")
 
+    data.append(nuevo_pedido)
+    guardar_archivo("Registro.json", data)
+    print(f"Ingreso registrado con éxito para {Nombre} el {datetime}")
+
 if rol==2:
+    data = abrir_archivo("Registro.json")
     datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     guardar_archivo("Registro.json")
 
 if rol==3:
+    data = abrir_archivo("Registro.json")
     datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     guardar_archivo("Registro.json")
 
