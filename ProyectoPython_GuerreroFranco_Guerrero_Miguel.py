@@ -31,7 +31,8 @@ rol=input("""Que rol tienes dentro de campus:
           
     1. Coordinador
     2. Trainer
-    3. Camper 
+    3. Camper
+    4. Registro de entradas
     """)
 booleano=True
 
