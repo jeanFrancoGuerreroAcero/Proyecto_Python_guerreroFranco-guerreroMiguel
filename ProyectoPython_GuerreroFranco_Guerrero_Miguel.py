@@ -48,7 +48,6 @@ nuevo_pedido = {
 if rol==1:
     data = abrir_archivo("Registro.json")
     datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    guardar_archivo("Registro.json")
 
     data.append(nuevo_pedido)
     guardar_archivo("Registro.json", data)
