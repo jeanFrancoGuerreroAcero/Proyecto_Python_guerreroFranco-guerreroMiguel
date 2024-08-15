@@ -1,7 +1,7 @@
 import json
 from datetime import datetime
 
-def abrir_archivo(nombre_archivo="Info.json"):
+def abrir_archivo(nombre_archivo="estudiantes.json"):
     try:
         with open(nombre_archivo, "r") as openfile:
             return json.load(openfile)
@@ -12,55 +12,48 @@ def guardar_archivo(nombre_archivo="estudiantes.json", data=None):
     with open(nombre_archivo, "w") as outfile:
         json.dump(data, outfile, indent=4)
 
+
+
+def abrirRegistro():
+    miJson=[]
+    with open("Registro.json","r")as openfile:
+        miJson=json.load(openfile)
+    return miJson
+
+def guardararchivoRegistro():
+    try:
+        with open("Registro.json","r")as openfile:
+            return json.load(openfile)
+    except FileNotFoundError:
+        return []
+
+def guardaditoRegistro(miData):
+    with open("Registro.json","w")as outfile:
+        json.dump(miData,outfile)
+
+
+
 postuIncritos=[]
 postu=[]
 
-with open('estudiantes.json', encoding= "utf-8") as openfile:
-    jsonn= json.load(openfile)
 
-for i in range (len(jsonn)):
-    if(jsonn[i]["grupo"]=="postulados"):
-        postuIncritos.append(jsonn[i])
-
-with open('estudiantes.json', encoding= "utf-8") as openfile:
-    jsonn= json.load(openfile)
-    
 #Bienvenida al usuario
 print("========================================================")
 print("   BIENVENIDO AL DEPARTAMENTO ACADEMICO DE CAMPUSLAND   ")
 print("========================================================")
+
+
 rol=input("""Que rol tienes dentro de campus: 
           
     1. Coordinador
     2. Trainer
     3. Camper 
+    4. registro de entrada
     """)
 
-nuevo_pedido = {
-        "id": (ide),
-        "Ingreso": datetime,
-        "Nombre": {Nombre},
-    }
-
-if rol==1:
-    data = abrir_archivo("Registro.json")
-    datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-    data.append(nuevo_pedido)
-    guardar_archivo("Registro.json", data)
-    print(f"Ingreso registrado con éxito para {Nombre} el {datetime}")
-
-if rol==2:
-    data = abrir_archivo("Registro.json")
-    datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    guardar_archivo("Registro.json")
-
-if rol==3:
-    data = abrir_archivo("Registro.json")
-    datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    guardar_archivo("Registro.json")
-
 booleano=True
+
+registro=guardararchivoRegistro()
 
 while booleano:
     contador=0
@@ -69,10 +62,12 @@ while booleano:
     #####seccion de registro de ventas
 
     if rol=="4":
-        RegistroAbrir=abrirRegistro()
+        RegistroAbrir=abrir_archivo()
         print("-------------------------------------")
         print("--BIENVENIDO A REGISTRO DE ENTRADAS--")
         print("-------------------------------------")
+        Nombre=input("ingresa tu nombre: ")
+        id=input("ingresa tu id: ")
         actividades=input("Que actividades se realizaron dentro de la jornada: ")
         print("En que estado esta la sesion")
         print("-Activa")
@@ -81,12 +76,14 @@ while booleano:
         secion=input("")
 
         entradas={
+            "id": id,
+            "Ingreso": "datetime",
+            "Nombre": Nombre,
             "actividades_realizadas_durante_sesion ":actividades,
             "Estado_de_la_sesion":secion 
         }
-        
         registro.append(entradas)
-        guarditoRegistro(registro)
+        guardaditoRegistro(registro)
 
 
     #el usuario entra como el coordinador
