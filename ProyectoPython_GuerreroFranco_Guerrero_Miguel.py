@@ -55,7 +55,7 @@ while booleano:
     3. Campers en peligro
     """)
 
-    #opcion 1 de las acciones que puede realizar el coordinador
+    #opcion 1 de las acciones que puede realizar el cooordinadorrr 1
         if QueDesea=="1":
             
             for i in jsonn[0]["estudiantes"]:
